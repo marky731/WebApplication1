@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.DatabaseService;
 using WebApplication1.Dtos;
 using WebApplication1.Models;
+using System.Collections.Generic;
 
 namespace WebApplication1.Controllers
 {
@@ -17,28 +18,28 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet()]
-        public IEnumerable<User> GetUsers()
+        public ApiResponse<IEnumerable<User>> GetUsers()
         {
             string sql = @"
             SELECT *
             FROM TutorialAppSchema.Users";
             IEnumerable<User> users = _dapper.LoadData<User>(sql);
-            return users;
+            return new ApiResponse<IEnumerable<User>>(true, "Users retrieved successfully", users);
         }
 
         [HttpGet("{userId}")]
-        public User GetSingleUser(int userId)
+        public ApiResponse<User> GetSingleUser(int userId)
         {
             string sql = @"
             SELECT *
             FROM TutorialAppSchema.Users
                 WHERE id = " + userId.ToString(); //"7"
             User user = _dapper.LoadDataSingle<User>(sql);
-            return user;
+            return new ApiResponse<User>(true, "User retrieved successfully", user);
         }
 
         [HttpPut()]
-        public IActionResult EditUser(User user)
+        public ApiResponse<User> EditUser(User user)
         {
             string sql = @"
         UPDATE TutorialAppSchema.Users
@@ -53,14 +54,14 @@ namespace WebApplication1.Controllers
 
             if (_dapper.ExecuteSql(sql))
             {
-                return Ok();
+                return new ApiResponse<User>(true, "User updated successfully", user);
             }
 
             throw new Exception("Failed to Update User");
         }
 
         [HttpPost()]
-        public IActionResult AddUser(UserToAddDto user)
+        public ApiResponse<string> AddUser(UserToAddDto user)
         {
             string sql = @"
             INSERT INTO TutorialAppSchema.Users(
@@ -81,14 +82,14 @@ namespace WebApplication1.Controllers
 
             if (_dapper.ExecuteSql(sql))
             {
-                return Ok();
+                return new ApiResponse<string>(true, "User added successfully", null);
             }
 
             throw new Exception("Failed to Add User");
         }
 
         [HttpDelete()]
-        public IActionResult DeleteUser(int userId)
+        public ApiResponse<string> DeleteUser(int userId)
         {
             string sql = @"
             DELETE FROM TutorialAppSchema.Users 
@@ -98,7 +99,7 @@ namespace WebApplication1.Controllers
 
             if (_dapper.ExecuteSql(sql))
             {
-                return Ok();
+                return new ApiResponse<string>(true, "User deleted successfully", null);
             }
 
             throw new Exception("Failed to Delete User");
