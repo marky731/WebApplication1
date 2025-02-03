@@ -3,14 +3,6 @@ using WebApplication1.Models;
 using WebApplication1.Dtos;
 using WebApplication1.DatabaseService;
 
-public interface IUserService
-{
-    IEnumerable<User> GetAllUsers();
-    User GetUserById(int id);
-    void CreateUser(User user);
-    void UpdateUser(User user);
-    void DeleteUser(int id);
-}
 
 public class UserService : IUserService
 {
@@ -126,7 +118,7 @@ public class UserService : IUserService
 
     void IUserService.CreateUser(User user)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException(); //nedenini arastir
     }
 
     void IUserService.UpdateUser(User user)
