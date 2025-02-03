@@ -1,42 +1,141 @@
-using System.Data;
-using Dapper;
-using Npgsql;
+using System.Collections.Generic;
 using WebApplication1.Models;
+using WebApplication1.Dtos;
+using WebApplication1.DatabaseService;
 
-namespace WebApplication1.DatabaseService
+public interface IUserService
 {
-    public class UserService
+    IEnumerable<User> GetAllUsers();
+    User GetUserById(int id);
+    void CreateUser(User user);
+    void UpdateUser(User user);
+    void DeleteUser(int id);
+}
+
+public class UserService : IUserService
+{
+    PostgreManager _context;
+
+    public UserService(IConfiguration config)
     {
-        private readonly IConfiguration _config;
+        _context = new PostgreManager(config);
+    }
 
-        public UserService(IConfiguration config)
+    public ApiResponse<IEnumerable<User>> GetAllUsers()
+    {
+        string sql = @"
+            SELECT *
+            FROM TutorialAppSchema.Users ORDER BY id ASC";
+        IEnumerable<User> users = _context.LoadData<User>(sql);
+        return new ApiResponse<IEnumerable<User>>(true, "Users retrieved successfully", users);
+    }
+
+    public ApiResponse<User> GetUserById(int userId)
+    {
+        string sql = @"
+            SELECT *
+            FROM TutorialAppSchema.Users
+                WHERE id = " + userId.ToString(); //"7"
+        User user = _context.LoadDataSingle<User>(sql);
+        return new ApiResponse<User>(true, "User retrieved successfully", user);
+    }
+
+    public ApiResponse<string> CreateUser(UserToAddDto userDto)
+    {
+        var user = new User
         {
-            _config = config;
-        }
+            FirstName = userDto.FirstName,
+            LastName = userDto.LastName,
+            Email = userDto.Email,
+            Gender = userDto.Gender,
+            Active = userDto.Active
+        };
         
-        public IEnumerable<T> LoadData<T>(string sql)
+        string sql = @"
+            INSERT INTO TutorialAppSchema.Users(
+                FirstName,
+                LastName,
+                Email,
+                Gender,
+                Active
+            ) VALUES (" +
+                     "'" + user.FirstName +
+                     "', '" + user.LastName +
+                     "', '" + user.Email +
+                     "', '" + user.Gender +
+                     "', '" + user.Active +
+                     "')";
+
+        Console.WriteLine(sql);
+
+        if (_context.ExecuteSql(sql))
         {
-            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Query<T>(sql);
+            return new ApiResponse<string>(true, "User added successfully", null);
         }
 
-        public T LoadDataSingle<T>(string sql)
+        throw new Exception("Failed to Add User");
+
+    }
+
+    public ApiResponse<User> UpdateUser(User user)
+    {
+        string sql = @"
+        UPDATE TutorialAppSchema.Users
+            SET FirstName = '" + user.FirstName +
+                     "', LastName = '" + user.LastName +
+                     "', Email = '" + user.Email +
+                     "', Gender = '" + user.Gender +
+                     "', Active = '" + user.Active +
+                     "' WHERE id = " + user.Id;
+
+        Console.WriteLine(sql);
+
+        if (_context.ExecuteSql(sql))
         {
-            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.QuerySingle<T>(sql);
+            return new ApiResponse<User>(true, "User updated successfully", user);
         }
 
-        public bool ExecuteSql(string sql)
+        throw new Exception("Failed to Update User");
+    }
+
+    public ApiResponse<string> DeleteUser(int userId)
+    {
+        string sql = @"
+            DELETE FROM TutorialAppSchema.Users 
+                WHERE id = " + userId.ToString();
+
+        Console.WriteLine(sql);
+
+        if (_context.ExecuteSql(sql))
         {
-            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Execute(sql) > 0;
+            return new ApiResponse<string>(true, "User deleted successfully", null);
         }
 
-        public int ExecuteSqlWithRowCount(string sql)
-        {
-            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Execute(sql);
-        }
-        
+        throw new Exception("Failed to Delete User");
+    }
+
+    IEnumerable<User> IUserService.GetAllUsers()
+    {
+        throw new NotImplementedException();
+    }
+
+    User IUserService.GetUserById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IUserService.CreateUser(User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IUserService.UpdateUser(User user)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IUserService.DeleteUser(int id)
+    {
+        throw new NotImplementedException();
     }
 }
