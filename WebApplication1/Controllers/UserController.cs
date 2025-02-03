@@ -16,14 +16,7 @@ namespace WebApplication1.Controllers
             _dapper = new UserService(config);
         }
 
-        [HttpGet("")]
-        public DateTime TestConnection()
-        {
-            return _dapper.LoadDataSingle<DateTime>("SELECT NOW()");
-        }
-
-
-        [HttpGet("")]
+        [HttpGet()]
         public IEnumerable<User> GetUsers()
         {
             string sql = @"
@@ -33,7 +26,7 @@ namespace WebApplication1.Controllers
             return users;
         }
 
-        [HttpGet(" ")]
+        [HttpGet("{userId}")]
         public User GetSingleUser(int userId)
         {
             string sql = @"
@@ -44,7 +37,7 @@ namespace WebApplication1.Controllers
             return user;
         }
 
-        [HttpPut("  ")]
+        [HttpPut()]
         public IActionResult EditUser(User user)
         {
             string sql = @"
@@ -66,8 +59,7 @@ namespace WebApplication1.Controllers
             throw new Exception("Failed to Update User");
         }
 
-
-        [HttpPost("   ")]
+        [HttpPost()]
         public IActionResult AddUser(UserToAddDto user)
         {
             string sql = @"
@@ -95,7 +87,7 @@ namespace WebApplication1.Controllers
             throw new Exception("Failed to Add User");
         }
 
-        [HttpDelete("    ")]
+        [HttpDelete()]
         public IActionResult DeleteUser(int userId)
         {
             string sql = @"
