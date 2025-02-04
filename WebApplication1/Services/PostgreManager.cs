@@ -3,7 +3,7 @@ using Dapper;
 using Npgsql;
 using WebApplication1.Models;
 
-namespace WebApplication1.DatabaseService
+namespace WebApplication1.Services
 {
     public class PostgreManager
     {

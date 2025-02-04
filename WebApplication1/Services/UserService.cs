@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using WebApplication1.Models;
 using WebApplication1.Dtos;
-using WebApplication1.DatabaseService;
+using WebApplication1.Models;
 
+namespace WebApplication1.Services;
 
 public class UserService : IUserService
 {

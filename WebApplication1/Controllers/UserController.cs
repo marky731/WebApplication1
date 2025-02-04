@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.DatabaseService;
+using WebApplication1.Services;
 using WebApplication1.Dtos;
 using WebApplication1.Models;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly UserService _userService; // ?? bunu nasıl burada çağırdım?
 
         public UserController(UserService userService)
         {
