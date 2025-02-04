@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Interfaces;
 using WebApplication1.Mappers;
 using WebApplication1.Services;
@@ -8,12 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>(); //userser interface
 builder.Services.AddAutoMapper(typeof(UserProfile));
 var mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>()));
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors((options) =>
 {

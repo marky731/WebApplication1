@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Dtos;
-using WebApplication1.Models;
 using WebApplication1.Interfaces;
-using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -28,7 +26,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost()]
-        public ApiResponse<string> AddUser(UserDto userDto) => _iUserService.CreateUser(userDto);
+        public ApiResponse<UserDto> AddUser(UserDto userDto) => _iUserService.CreateUser(userDto);
 
 
         [HttpDelete("")]

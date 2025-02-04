@@ -3,29 +3,25 @@ namespace WebApplication1.Dtos;
 public class UserDto
 {
     public int Id { get; set; }
-    public string FirstName {get; set;}
-    public string LastName {get; set;}
-    public string Email {get; set;}
-    public string Gender {get; set;}
-    public bool Active {get; set;}
+    public string firstname {get; set;}
+    public string surname {get; set;}
+    public string gender {get; set;}
+
 
     public UserDto()
     {
-        if (FirstName == null)
+        if (firstname == null)
         {
-            FirstName = "";
+            firstname = "";
         }
-        if (LastName == null)
+        if (surname == null)
         {
-            LastName = "";
+            surname = "";
         }
-        if (Email == null)
+
+        if (gender == null)
         {
-            Email = "";
-        }
-        if (Gender == null)
-        {
-            Gender = "";
+            gender = "";
         }
     }
 }
