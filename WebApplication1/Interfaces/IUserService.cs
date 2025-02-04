@@ -1,10 +1,15 @@
+using WebApplication1.Dtos;
 using WebApplication1.Models;
 
-public interface IUserService //folder
+namespace WebApplication1.Interfaces;
+
+public interface IUserService 
 {
-    IEnumerable<User> GetAllUsers();
-    User GetUserById(int id);
-    void CreateUser(User user);
-    void UpdateUser(User user);
-    void DeleteUser(int id);
+    ApiResponse<List<UserDto>> GetAllUsers();
+    ApiResponse<UserDto> GetUserById(int id);
+    ApiResponse<string> CreateUser(UserDto userDto);
+    ApiResponse<UserDto> UpdateUser(UserDto userDto); 
+    ApiResponse<string> DeleteUser(int id);
+    
+    
 }

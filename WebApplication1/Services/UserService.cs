@@ -1,4 +1,6 @@
+using AutoMapper;
 using WebApplication1.Dtos;
+using WebApplication1.Interfaces;
 using WebApplication1.Models;
 
 namespace WebApplication1.Services;
@@ -6,42 +8,30 @@ namespace WebApplication1.Services;
 public class UserService : IUserService
 {
     PostgreManager _context;
+    private readonly IMapper _mapper;
 
-    public UserService(IConfiguration config)
+    public UserService(IConfiguration config, IMapper mapper)
     {
         _context = new PostgreManager(config);
+        _mapper = mapper;
     }
 
-    public ApiResponse<IEnumerable<User>> GetAllUsers()
+    public ApiResponse<List<UserDto>> GetAllUsers() // Dto donuyor hepsi
     {
         string sql = @"
             SELECT *
             FROM TutorialAppSchema.Users ORDER BY id ASC";
         IEnumerable<User> users = _context.LoadData<User>(sql);
-        return new ApiResponse<IEnumerable<User>>(true, "Users retrieved successfully", users);
+        List<UserDto> userDtos = _mapper.Map<List<UserDto>>(users);
+
+        return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
     }
 
-    public ApiResponse<User> GetUserById(int userId)
-    {
-        string sql = @"
-            SELECT *
-            FROM TutorialAppSchema.Users
-                WHERE id = " + userId.ToString(); //"7"
-        User user = _context.LoadDataSingle<User>(sql);
-        return new ApiResponse<User>(true, "User retrieved successfully", user);
-    }
 
-    public ApiResponse<string> CreateUser(UserToAddDto userDto)
+    public ApiResponse<string> CreateUser(UserDto userDto)
     {
-        var user = new User
-        {
-            FirstName = userDto.FirstName,
-            LastName = userDto.LastName,
-            Email = userDto.Email,
-            Gender = userDto.Gender,
-            Active = userDto.Active
-        };
-        
+        var user = _mapper.Map<User>(userDto);
+
         string sql = @"
             INSERT INTO TutorialAppSchema.Users(
                 FirstName,
@@ -65,25 +55,24 @@ public class UserService : IUserService
         }
 
         throw new Exception("Failed to Add User");
-
     }
 
-    public ApiResponse<User> UpdateUser(User user)
+    public ApiResponse<UserDto> UpdateUser(UserDto userDto)
     {
         string sql = @"
         UPDATE TutorialAppSchema.Users
-            SET FirstName = '" + user.FirstName +
-                     "', LastName = '" + user.LastName +
-                     "', Email = '" + user.Email +
-                     "', Gender = '" + user.Gender +
-                     "', Active = '" + user.Active +
-                     "' WHERE id = " + user.Id;
+            SET FirstName = '" + userDto.FirstName +
+                     "', LastName = '" + userDto.LastName +
+                     "', Email = '" + userDto.Email +
+                     "', Gender = '" + userDto.Gender +
+                     "', Active = '" + userDto.Active +
+                     "' WHERE id = " + userDto.Id;
 
         Console.WriteLine(sql);
 
         if (_context.ExecuteSql(sql))
         {
-            return new ApiResponse<User>(true, "User updated successfully", user);
+            return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
         }
 
         throw new Exception("Failed to Update User");
@@ -105,28 +94,15 @@ public class UserService : IUserService
         throw new Exception("Failed to Delete User");
     }
 
-    IEnumerable<User> IUserService.GetAllUsers()
-    {
-        throw new NotImplementedException();
-    }
 
-    User IUserService.GetUserById(int id)
+    public ApiResponse<UserDto> GetUserById(int id)
     {
-        throw new NotImplementedException();
-    }
-
-    void IUserService.CreateUser(User user)
-    {
-        throw new NotImplementedException(); //nedenini arastir
-    }
-
-    void IUserService.UpdateUser(User user)
-    {
-        throw new NotImplementedException();
-    }
-
-    void IUserService.DeleteUser(int id)
-    {
-        throw new NotImplementedException();
+        string sql = @"
+            SELECT *
+            FROM TutorialAppSchema.Users
+                WHERE id = " + userId.ToString(); //"7"
+        User user = _context.LoadDataSingle<User>(sql);
+        UserDto userDtos = _mapper.Map<UserDto>(user);
+        return new ApiResponse<UserDto>(true, "User retrieved successfully", userDtos);
     }
 }

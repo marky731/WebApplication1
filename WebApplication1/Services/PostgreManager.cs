@@ -1,7 +1,6 @@
 using System.Data;
 using Dapper;
 using Npgsql;
-using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
@@ -13,7 +12,7 @@ namespace WebApplication1.Services
         {
             _config = config;
         }
-        
+
         public IEnumerable<T> LoadData<T>(string sql)
         {
             IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
@@ -37,6 +36,5 @@ namespace WebApplication1.Services
             IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
             return dbConnection.Execute(sql);
         }
-        
     }
 }

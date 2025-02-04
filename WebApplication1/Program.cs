@@ -1,3 +1,6 @@
+using AutoMapper;
+using WebApplication1.Interfaces;
+using WebApplication1.Mappers;
 using WebApplication1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +11,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<UserService>(); //userser interface
+builder.Services.AddScoped<IUserService, UserService>(); //userser interface
+builder.Services.AddAutoMapper(typeof(UserProfile));
+var mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>()));
 
 builder.Services.AddCors((options) =>
 {
@@ -27,9 +32,9 @@ builder.Services.AddCors((options) =>
             .AllowCredentials();
     });
 });
- 
+
 var app = builder.Build();
- 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
