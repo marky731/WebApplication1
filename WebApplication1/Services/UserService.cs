@@ -95,7 +95,7 @@ public class UserService : IUserService
     }
 
 
-    public ApiResponse<UserDto> GetUserById(int id)
+    public ApiResponse<UserDto> GetUserById(int userId)
     {
         string sql = @"
             SELECT *
