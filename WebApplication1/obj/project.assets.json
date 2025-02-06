@@ -1525,6 +1525,37 @@
           }
         }
       },
+      "DataProgress/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Dapper": "2.1.35",
+          "Intermediary": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3"
+        },
+        "compile": {
+          "bin/placeholder/DataProgress.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataProgress.dll": {}
+        }
+      },
+      "Intermediary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.1",
+          "Presentation": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Intermediary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Intermediary.dll": {}
+        }
+      },
       "Presentation/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -1536,20 +1567,6 @@
         },
         "runtime": {
           "bin/placeholder/Presentation.dll": {}
-        }
-      },
-      "SecondLayer/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "dependencies": {
-          "AutoMapper": "12.0.1",
-          "Presentation": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/SecondLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SecondLayer.dll": {}
         }
       }
     }
@@ -4416,15 +4433,20 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
+    "DataProgress/1.0.0": {
+      "type": "project",
+      "path": "../DataProgress/DataProgress.csproj",
+      "msbuildProject": "../DataProgress/DataProgress.csproj"
+    },
+    "Intermediary/1.0.0": {
+      "type": "project",
+      "path": "../Intermediary/Intermediary.csproj",
+      "msbuildProject": "../Intermediary/Intermediary.csproj"
+    },
     "Presentation/1.0.0": {
       "type": "project",
       "path": "../Presentation/Presentation.csproj",
       "msbuildProject": "../Presentation/Presentation.csproj"
-    },
-    "SecondLayer/1.0.0": {
-      "type": "project",
-      "path": "../SecondLayer/SecondLayer.csproj",
-      "msbuildProject": "../SecondLayer/SecondLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4433,6 +4455,8 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Autofac >= 8.2.0",
       "Autofac.Extensions.DependencyInjection >= 10.0.0",
+      "DataProgress >= 1.0.0",
+      "Intermediary >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.13",
       "Microsoft.EntityFrameworkCore >= 9.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.1",
@@ -4441,7 +4465,6 @@
       "NUnit3TestAdapter >= 4.6.0",
       "Npgsql >= 9.0.2",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.3",
-      "SecondLayer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "dapper >= 2.1.35",
       "xunit >= 2.9.3"
@@ -4472,8 +4495,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/mac/RiderProjects/WebApplication1/SecondLayer/SecondLayer.csproj": {
-              "projectPath": "/Users/mac/RiderProjects/WebApplication1/SecondLayer/SecondLayer.csproj"
+            "/Users/mac/RiderProjects/WebApplication1/DataProgress/DataProgress.csproj": {
+              "projectPath": "/Users/mac/RiderProjects/WebApplication1/DataProgress/DataProgress.csproj"
+            },
+            "/Users/mac/RiderProjects/WebApplication1/Intermediary/Intermediary.csproj": {
+              "projectPath": "/Users/mac/RiderProjects/WebApplication1/Intermediary/Intermediary.csproj"
             }
           }
         }

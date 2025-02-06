@@ -28,7 +28,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SecondLayer\SecondLayer.csproj" />
+      <ProjectReference Include="..\DataProgress\DataProgress.csproj" />
+      <ProjectReference Include="..\Intermediary\Intermediary.csproj" />
     </ItemGroup>
 
 </Project>

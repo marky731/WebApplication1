@@ -1,0 +1,16 @@
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Intermediary.deps.json
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Intermediary.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Intermediary.pdb
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Presentation.pdb
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.csproj.AssemblyReference.cache
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.AssemblyInfoInputs.cache
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.AssemblyInfo.cs
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.csproj.CoreCompileInputs.cache
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.sourcelink.json
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermed.77C34A76.Up2Date
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/refint/Intermediary.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/Intermediary.pdb
+/Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/ref/Intermediary.dll

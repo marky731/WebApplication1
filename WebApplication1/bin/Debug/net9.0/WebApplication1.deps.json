@@ -12,6 +12,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Autofac": "8.2.0",
           "Autofac.Extensions.DependencyInjection": "10.0.0",
+          "DataProgress": "1.0.0",
+          "Intermediary": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.13",
           "Microsoft.EntityFrameworkCore": "9.0.1",
           "Microsoft.EntityFrameworkCore.Design": "9.0.1",
@@ -20,7 +22,6 @@
           "NUnit3TestAdapter": "4.6.0",
           "Npgsql": "9.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3",
-          "SecondLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Dapper": "2.1.35",
           "xunit": "2.9.3"
@@ -1005,24 +1006,39 @@
           }
         }
       },
+      "DataProgress/1.0.0": {
+        "dependencies": {
+          "Dapper": "2.1.35",
+          "Intermediary": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3"
+        },
+        "runtime": {
+          "DataProgress.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Intermediary/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.1",
+          "Presentation": "1.0.0"
+        },
+        "runtime": {
+          "Intermediary.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Presentation/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.1"
         },
         "runtime": {
           "Presentation.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "SecondLayer/1.0.0": {
-        "dependencies": {
-          "AutoMapper": "12.0.1",
-          "Presentation": "1.0.0"
-        },
-        "runtime": {
-          "SecondLayer.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1519,12 +1535,17 @@
       "path": "xunit.extensibility.execution/2.9.3",
       "hashPath": "xunit.extensibility.execution.2.9.3.nupkg.sha512"
     },
-    "Presentation/1.0.0": {
+    "DataProgress/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "SecondLayer/1.0.0": {
+    "Intermediary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Presentation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
