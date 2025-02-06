@@ -2,9 +2,10 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Interfaces;
-using WebApplication1.Mappers;
-using WebApplication1.Services;
+using Presentation.Data;
+using Presentation.Interfaces;
+using SecondLayer.Mappers;
+using SecondLayer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

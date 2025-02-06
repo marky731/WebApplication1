@@ -1,0 +1,13 @@
+/Users/mac/RiderProjects/WebApplication1/Presentation/bin/Debug/net9.0/Presentation.deps.json
+/Users/mac/RiderProjects/WebApplication1/Presentation/bin/Debug/net9.0/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/Presentation/bin/Debug/net9.0/Presentation.pdb
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.csproj.AssemblyReference.cache
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.AssemblyInfoInputs.cache
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.AssemblyInfo.cs
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.csproj.CoreCompileInputs.cache
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.sourcelink.json
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/refint/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/Presentation.pdb
+/Users/mac/RiderProjects/WebApplication1/Presentation/obj/Debug/net9.0/ref/Presentation.dll

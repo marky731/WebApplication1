@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Dtos;
-using WebApplication1.Interfaces;
+using Presentation.Dtos;
+using Presentation.Interfaces;
+
 
 namespace WebApplication1.Controllers
 {

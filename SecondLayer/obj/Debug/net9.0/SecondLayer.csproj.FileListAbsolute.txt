@@ -1,0 +1,16 @@
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/bin/Debug/net9.0/SecondLayer.deps.json
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/bin/Debug/net9.0/SecondLayer.dll
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/bin/Debug/net9.0/SecondLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/bin/Debug/net9.0/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/bin/Debug/net9.0/Presentation.pdb
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.csproj.AssemblyReference.cache
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.AssemblyInfoInputs.cache
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.AssemblyInfo.cs
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.csproj.CoreCompileInputs.cache
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.sourcelink.json
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLa.334AA58F.Up2Date
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.dll
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/refint/SecondLayer.dll
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/SecondLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/SecondLayer/obj/Debug/net9.0/ref/SecondLayer.dll

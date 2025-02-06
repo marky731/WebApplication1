@@ -20,6 +20,7 @@
           "NUnit3TestAdapter": "4.6.0",
           "Npgsql": "9.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3",
+          "SecondLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Dapper": "2.1.35",
           "xunit": "2.9.3"
@@ -1003,6 +1004,29 @@
             "fileVersion": "2.9.3.0"
           }
         }
+      },
+      "Presentation/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.1"
+        },
+        "runtime": {
+          "Presentation.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SecondLayer/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Presentation": "1.0.0"
+        },
+        "runtime": {
+          "SecondLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1494,6 +1518,16 @@
       "sha512": "sha512-yMb6vMESlSrE3Wfj7V6cjQ3S4TXdXpRqYeNEI3zsX31uTsGMJjEw6oD5F5u1cHnMptjhEECnmZSsPxB6ChZHDQ==",
       "path": "xunit.extensibility.execution/2.9.3",
       "hashPath": "xunit.extensibility.execution.2.9.3.nupkg.sha512"
+    },
+    "Presentation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SecondLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

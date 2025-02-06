@@ -215,3 +215,8 @@
 /Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/Autofac.dll
 /Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/Autofac.Extensions.DependencyInjection.dll
+/Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/.msCoverageSourceRootsMapping_WebApplication1
+/Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/Presentation.dll
+/Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/SecondLayer.dll
+/Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/SecondLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net9.0/Presentation.pdb
