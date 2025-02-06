@@ -1,3 +1,5 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Interfaces;
@@ -7,17 +9,16 @@ using WebApplication1.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IUserService, UserService>(); //userser interface
 builder.Services.AddAutoMapper(typeof(UserProfile));
-var mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>()));
 
+// Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Register CORS policies
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
@@ -36,24 +37,40 @@ builder.Services.AddCors((options) =>
     });
 });
 
+// Create Autofac container builder
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    // Register services with Autofac
+    containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+    containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
+        .As<IMapper>()
+        .SingleInstance();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("DevCors");
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 else
 {
-    app.UseCors("ProdCors");
-    app.UseHttpsRedirection();
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-//app.UseAuthorization();
+app.UseRouting();
+
+app.UseCors("DevCors");
+
+app.UseAuthorization();
 
 app.MapControllers();
 

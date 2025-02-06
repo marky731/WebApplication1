@@ -8,7 +8,7 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService _iUserService; // interface
+        private readonly IUserService _iUserService; 
 
         public UsersController(IUserService iUserService)
         {

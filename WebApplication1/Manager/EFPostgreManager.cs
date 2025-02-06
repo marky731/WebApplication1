@@ -1,15 +1,12 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
-    public class PostgreManagerEF
+    public class EFPostgreManager
     {
         private readonly ApplicationDbContext _context;
 
-        public PostgreManagerEF(ApplicationDbContext context)
+        public EFPostgreManager(ApplicationDbContext context)
         {
             _context = context;
         }

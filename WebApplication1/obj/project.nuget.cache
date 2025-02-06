@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4HCTmzfTDSg=",
+  "dgSpecHash": "d8T2mtSB7ds=",
   "success": true,
   "projectFilePath": "/Users/mac/RiderProjects/WebApplication1/WebApplication1/WebApplication1.csproj",
   "expectedPackageFiles": [
+    "/Users/mac/.nuget/packages/autofac/8.2.0/autofac.8.2.0.nupkg.sha512",
+    "/Users/mac/.nuget/packages/autofac.extensions.dependencyinjection/10.0.0/autofac.extensions.dependencyinjection.10.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/dapper/2.1.35/dapper.2.1.35.nupkg.sha512",
@@ -58,6 +60,7 @@
     "/Users/mac/.nuget/packages/system.composition.hosting/7.0.0/system.composition.hosting.7.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/system.composition.runtime/7.0.0/system.composition.runtime.7.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/system.composition.typedparts/7.0.0/system.composition.typedparts.7.0.0.nupkg.sha512",
+    "/Users/mac/.nuget/packages/system.diagnostics.diagnosticsource/8.0.1/system.diagnostics.diagnosticsource.8.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/system.io.pipelines/7.0.0/system.io.pipelines.7.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/system.reflection.metadata/7.0.0/system.reflection.metadata.7.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
