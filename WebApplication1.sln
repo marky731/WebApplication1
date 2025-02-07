@@ -2,11 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{B36E0F98-6EDA-4F36-9A6B-82235C20051E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{67850ECC-288D-46CF-8B43-7422F06988CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcess", "DataProcess\DataProcess.csproj", "{67850ECC-288D-46CF-8B43-7422F06988CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{B7FC4C73-0CED-4CC9-87A3-87475C624D25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondLayer", "SecondLayer\SecondLayer.csproj", "{DCDB986D-4640-4B75-ACA5-EE2A8E893461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intermediary", "Intermediary\Intermediary.csproj", "{DCDB986D-4640-4B75-ACA5-EE2A8E893461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

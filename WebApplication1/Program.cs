@@ -2,10 +2,10 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Presentation.Data;
 using Presentation.Interfaces;
-using SecondLayer.Mappers;
-using SecondLayer.Services;
+using Intermediary.DbContext;
+using Intermediary.Mappers;
+using DbContext = Intermediary.DbContext.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(UserProfile));
 
 // Register DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<DbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Register CORS policies
@@ -43,7 +43,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     // Register services with Autofac
-    containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<EFUserService>().As<IUserService>().InstancePerLifetimeScope();
     containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
         .As<IMapper>()
         .SingleInstance();
