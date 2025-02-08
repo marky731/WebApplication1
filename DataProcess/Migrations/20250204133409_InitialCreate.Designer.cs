@@ -5,8 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Intermediary.DbContext;
-using DbContext = Intermediary.DbContext.DbContext;
+using DbContext = DataAccess.DbContext.DbContext;
 
 #nullable disable
 

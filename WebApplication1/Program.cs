@@ -2,10 +2,11 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Presentation.Interfaces;
-using Intermediary.DbContext;
+using Intermediary.Interfaces;
 using Intermediary.Mappers;
-using DbContext = Intermediary.DbContext.DbContext;
+using Intermediary.Services;
+using DbContext = DataAccess.DbContext.DbContext;
+using DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +44,8 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     // Register services with Autofac
-    containerBuilder.RegisterType<EFUserService>().As<IUserService>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<EfUserService>().As<IUserService>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
     containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
         .As<IMapper>()
         .SingleInstance();

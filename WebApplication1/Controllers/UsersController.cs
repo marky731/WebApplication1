@@ -1,7 +1,7 @@
+using Intermediary.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ApiResponse;
 using Presentation.Dtos;
-using Presentation.Interfaces;
 
 
 namespace WebApplication1.Controllers
@@ -32,6 +32,6 @@ namespace WebApplication1.Controllers
 
 
         [HttpDelete("")]
-        public ApiResponse<string> DeleteUser(int userId) => _iUserService.DeleteUser(userId);
+        public ApiResponse<string?> DeleteUser(int userId) => _iUserService.DeleteUser(userId);
     }
 }

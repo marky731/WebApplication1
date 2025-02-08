@@ -1,24 +1,25 @@
 using AutoMapper;
+using Intermediary.Interfaces;
 using Presentation.ApiResponse;
 using Presentation.Dtos;
-using Presentation.Interfaces;
 using Presentation.Models;
-using Intermediary.DbContext;
 
-public class EFUserService : IUserService
+namespace Intermediary.Services;
+
+public class EfUserService : IUserService
 {
-    private readonly DbContext _context;
+    private readonly IUserRepository _userRepository; // Inject IUserRepository
     private readonly IMapper _mapper;
 
-    public EFUserService(DbContext context, IMapper mapper)
+    public EfUserService(IUserRepository userRepository, IMapper mapper)
     {
-        _context = context;
+        _userRepository = userRepository;
         _mapper = mapper;
     }
 
     public ApiResponse<List<UserDto>> GetAllUsers()
     {
-        var users = _context.users.OrderBy(u => u.Id).ToList();
+        var users = _userRepository.GetAllUsers();  // Call repository method
         var userDtos = _mapper.Map<List<UserDto>>(users);
 
         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
@@ -27,43 +28,41 @@ public class EFUserService : IUserService
     public ApiResponse<UserDto> CreateUser(UserDto userDto)
     {
         var user = _mapper.Map<User>(userDto);
-        _context.users.Add(user);
-        _context.SaveChanges();
+        _userRepository.AddUser(user);  // Call repository method
 
         return new ApiResponse<UserDto>(true, "User added successfully", userDto);
     }
 
     public ApiResponse<UserDto> UpdateUser(UserDto userDto)
     {
-        var user = _context.users.Find(userDto.Id);
+        var user = _userRepository.GetUserById(userDto.Id);  // Call repository method
         if (user == null)
         {
             throw new Exception("User not found");
         }
 
         _mapper.Map(userDto, user);
-        _context.SaveChanges();
+        _userRepository.UpdateUser(user);  // Call repository method
 
         return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
     }
 
-    public ApiResponse<string> DeleteUser(int userId)
+    public ApiResponse<string?> DeleteUser(int userId)
     {
-        var user = _context.users.Find(userId);
+        var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
             throw new Exception("User not found");
         }
 
-        _context.users.Remove(user);
-        _context.SaveChanges();
+        _userRepository.DeleteUser(userId);  // Call repository method
 
-        return new ApiResponse<string>(true, "User deleted successfully", null);
+        return new ApiResponse<string?>(true, "User deleted successfully", null);
     }
 
     public ApiResponse<UserDto> GetUserById(int userId)
     {
-        var user = _context.users.Find(userId);
+        var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
             throw new Exception("User not found");

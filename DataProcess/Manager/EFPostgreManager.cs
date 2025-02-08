@@ -1,6 +1,5 @@
-using Intermediary.DbContext;
 using Microsoft.EntityFrameworkCore;
-using DbContext = Intermediary.DbContext.DbContext;
+using DbContext = DataAccess.DbContext.DbContext;
 
 
 public class EFPostgreManager

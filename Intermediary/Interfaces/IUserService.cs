@@ -1,7 +1,7 @@
 using Presentation.ApiResponse;
 using Presentation.Dtos;
 
-namespace Presentation.Interfaces;
+namespace Intermediary.Interfaces;
 
 public interface IUserService 
 {
@@ -9,7 +9,7 @@ public interface IUserService
     ApiResponse<UserDto> GetUserById(int id);
     ApiResponse<UserDto> CreateUser(UserDto userDto);
     ApiResponse<UserDto> UpdateUser(UserDto userDto); 
-    ApiResponse<string> DeleteUser(int id);
+    ApiResponse<string?> DeleteUser(int id);
     
     
 }
