@@ -25,12 +25,12 @@ public class EfUserService : IUserService
         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
     }
 
-    public ApiResponse<UserDto> CreateUser(UserDto userDto)
+    public ApiResponse<UserToAddDto> CreateUser(UserToAddDto userToAddDto)
     {
-        var user = _mapper.Map<User>(userDto);
+        var user = _mapper.Map<User>(userToAddDto);
         _userRepository.AddUser(user);  // Call repository method
 
-        return new ApiResponse<UserDto>(true, "User added successfully", userDto);
+        return new ApiResponse<UserToAddDto>(true, "User added successfully", userToAddDto);
     }
 
     public ApiResponse<UserDto> UpdateUser(UserDto userDto)

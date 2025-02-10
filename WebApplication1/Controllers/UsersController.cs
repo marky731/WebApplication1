@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost()]
-        public ApiResponse<UserDto> AddUser(UserDto userDto) => _iUserService.CreateUser(userDto);
+        public ApiResponse<UserToAddDto> AddUser(UserToAddDto userToAddDto) => _iUserService.CreateUser(userToAddDto);
 
 
         [HttpDelete("")]

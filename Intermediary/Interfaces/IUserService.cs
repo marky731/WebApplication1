@@ -7,7 +7,7 @@ public interface IUserService
 {
     ApiResponse<List<UserDto>> GetAllUsers();
     ApiResponse<UserDto> GetUserById(int id);
-    ApiResponse<UserDto> CreateUser(UserDto userDto);
+    ApiResponse<UserToAddDto> CreateUser(UserToAddDto userToAddDto);
     ApiResponse<UserDto> UpdateUser(UserDto userDto); 
     ApiResponse<string?> DeleteUser(int id);
     
