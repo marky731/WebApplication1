@@ -1,8 +1,8 @@
 // using AutoMapper;
 // using Microsoft.Extensions.Configuration;
-// using Presentation.Dtos;
-// using Presentation.Interfaces;
-// using Presentation.Models;
+// using EntityLayer.Dtos;
+// using EntityLayer.Interfaces;
+// using EntityLayer.Models;
 //
 // public class UserService : IUserService
 // {
@@ -20,7 +20,7 @@
 //         string sql = @"
 //             SELECT *
 //             FROM TutorialAppSchema.Users ORDER BY id ASC";
-//         IEnumerable<User> users = _context.LoadData<User>(sql);
+//         IEnumerable<user> users = _context.LoadData<user>(sql);
 //         List<UserDto> userDtos = _mapper.Map<List<UserDto>>(users);
 //
 //         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
@@ -29,7 +29,7 @@
 //
 //     public ApiResponse<string> CreateUser(UserDto userDto)
 //     {
-//         var user = _mapper.Map<User>(userDto);
+//         var user = _mapper.Map<user>(userDto);
 //
 //         string sql = @"
 //             INSERT INTO TutorialAppSchema.Users(
@@ -50,10 +50,10 @@
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<string>(true, "User added successfully", null);
+//             return new ApiResponse<string>(true, "user added successfully", null);
 //         }
 //
-//         throw new Exception("Failed to Add User");
+//         throw new Exception("Failed to Add user");
 //     }
 //
 //     public ApiResponse<UserDto> UpdateUser(UserDto userDto)
@@ -71,10 +71,10 @@
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
+//             return new ApiResponse<UserDto>(true, "user updated successfully", userDto);
 //         }
 //
-//         throw new Exception("Failed to Update User");
+//         throw new Exception("Failed to Update user");
 //     }
 //
 //     public ApiResponse<string> DeleteUser(int userId)
@@ -87,10 +87,10 @@
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<string>(true, "User deleted successfully", null);
+//             return new ApiResponse<string>(true, "user deleted successfully", null);
 //         }
 //
-//         throw new Exception("Failed to Delete User");
+//         throw new Exception("Failed to Delete user");
 //     }
 //
 //
@@ -100,8 +100,8 @@
 //             SELECT *
 //             FROM TutorialAppSchema.Users
 //                 WHERE id = " + userId.ToString(); //"7"
-//         User user = _context.LoadDataSingle<User>(sql);
+//         user user = _context.LoadDataSingle<user>(sql);
 //         UserDto userDtos = _mapper.Map<UserDto>(user);
-//         return new ApiResponse<UserDto>(true, "User retrieved successfully", userDtos);
+//         return new ApiResponse<UserDto>(true, "user retrieved successfully", userDtos);
 //     }
 // }

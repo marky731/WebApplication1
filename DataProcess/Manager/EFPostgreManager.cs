@@ -1,12 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using DbContext = DataAccess.DbContext.DbContext;
+using AppDbContext = DataAccess.DbContext.AppDbContext;
 
+
+namespace DataAccess.Manager;
 
 public class EFPostgreManager
 {
-    private readonly DbContext _context;
+    private readonly AppDbContext _context;
 
-    public EFPostgreManager(DbContext context)
+    public EFPostgreManager(AppDbContext context)
     {
         _context = context;
     }

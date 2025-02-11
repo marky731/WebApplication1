@@ -3,37 +3,39 @@ using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 
-
-public class DapperPostgreManager
+namespace DataAccess.Manager
 {
-    private readonly IConfiguration _config;
-
-    public DapperPostgreManager(IConfiguration config)
+    public class DapperPostgreManager
     {
-        _config = config;
-    }
+        private readonly IConfiguration _config;
 
-    public IEnumerable<T> LoadData<T>(string sql)
-    {
-        IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Query<T>(sql);
-    }
+        public DapperPostgreManager(IConfiguration config)
+        {
+            _config = config;
+        }
 
-    public T LoadDataSingle<T>(string sql)
-    {
-        IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.QuerySingle<T>(sql);
-    }
+        public IEnumerable<T> LoadData<T>(string sql)
+        {
+            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.Query<T>(sql);
+        }
 
-    public bool ExecuteSql(string sql)
-    {
-        IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Execute(sql) > 0;
-    }
+        public T LoadDataSingle<T>(string sql)
+        {
+            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.QuerySingle<T>(sql);
+        }
 
-    public int ExecuteSqlWithRowCount(string sql)
-    {
-        IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Execute(sql);
-    }
+        public bool ExecuteSql(string sql)
+        {
+            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.Execute(sql) > 0;
+        }
+
+        public int ExecuteSqlWithRowCount(string sql)
+        {
+            IDbConnection dbConnection = new NpgsqlConnection(_config.GetConnectionString("DefaultConnection"));
+            return dbConnection.Execute(sql);
+        }
+    } 
 }

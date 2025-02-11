@@ -237,17 +237,17 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Presentation/1.0.0": {
+      "EntityLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.1"
         },
         "compile": {
-          "bin/placeholder/Presentation.dll": {}
+          "bin/placeholder/EntityLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Presentation.dll": {}
+          "bin/placeholder/EntityLayer.dll": {}
         }
       }
     }
@@ -700,17 +700,17 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Presentation/1.0.0": {
+    "EntityLayer/1.0.0": {
       "type": "project",
-      "path": "../Presentation/Presentation.csproj",
-      "msbuildProject": "../Presentation/Presentation.csproj"
+      "path": "../EntityLayer/EntityLayer.csproj",
+      "msbuildProject": "../EntityLayer/EntityLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "AutoMapper >= 12.0.1",
-      "Microsoft.Extensions.Configuration.Abstractions >= 9.0.1",
-      "Presentation >= 1.0.0"
+      "EntityLayer >= 1.0.0",
+      "Microsoft.Extensions.Configuration.Abstractions >= 9.0.1"
     ]
   },
   "packageFolders": {
@@ -738,8 +738,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/mac/RiderProjects/WebApplication1/Presentation/Presentation.csproj": {
-              "projectPath": "/Users/mac/RiderProjects/WebApplication1/Presentation/Presentation.csproj"
+            "/Users/mac/RiderProjects/WebApplication1/EntityLayer/EntityLayer.csproj": {
+              "projectPath": "/Users/mac/RiderProjects/WebApplication1/EntityLayer/EntityLayer.csproj"
             }
           }
         }

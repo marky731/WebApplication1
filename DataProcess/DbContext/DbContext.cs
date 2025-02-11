@@ -1,12 +1,21 @@
+using EntityLayer.Models;
 using Microsoft.EntityFrameworkCore;
-using Presentation.Models;
 
 namespace DataAccess.DbContext
 {
-    public class DbContext : Microsoft.EntityFrameworkCore.DbContext
+    public class AppDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public DbContext(DbContextOptions<DbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
-        public DbSet<User?> users { get; set; }
+        public DbSet<user> users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<user>()
+                .Property(u => u.Id)
+                .ValueGeneratedOnAdd();
+        }
     }
 }

@@ -1,8 +1,8 @@
 using AutoMapper;
 using Intermediary.Interfaces;
-using Presentation.ApiResponse;
-using Presentation.Dtos;
-using Presentation.Models;
+using EntityLayer.ApiResponse;
+using EntityLayer.Dtos;
+using EntityLayer.Models;
 
 namespace Intermediary.Services;
 
@@ -25,12 +25,12 @@ public class EfUserService : IUserService
         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
     }
 
-    public ApiResponse<UserToAddDto> CreateUser(UserToAddDto userToAddDto)
+    public ApiResponse<UserDto> CreateUser(UserDto userDto)
     {
-        var user = _mapper.Map<User>(userToAddDto);
+        var user = _mapper.Map<user>(userDto);
         _userRepository.AddUser(user);  // Call repository method
 
-        return new ApiResponse<UserToAddDto>(true, "User added successfully", userToAddDto);
+        return new ApiResponse<UserDto>(true, "user added successfully", userDto);
     }
 
     public ApiResponse<UserDto> UpdateUser(UserDto userDto)
@@ -38,13 +38,13 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userDto.Id);  // Call repository method
         if (user == null)
         {
-            throw new Exception("User not found");
+            throw new Exception("user not found");
         }
 
         _mapper.Map(userDto, user);
         _userRepository.UpdateUser(user);  // Call repository method
 
-        return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
+        return new ApiResponse<UserDto>(true, "user updated successfully", userDto);
     }
 
     public ApiResponse<string?> DeleteUser(int userId)
@@ -52,12 +52,12 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
-            throw new Exception("User not found");
+            throw new Exception("user not found");
         }
 
         _userRepository.DeleteUser(userId);  // Call repository method
 
-        return new ApiResponse<string?>(true, "User deleted successfully", null);
+        return new ApiResponse<string?>(true, "user deleted successfully", null);
     }
 
     public ApiResponse<UserDto> GetUserById(int userId)
@@ -65,10 +65,10 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
-            throw new Exception("User not found");
+            throw new Exception("user not found");
         }
 
         var userDto = _mapper.Map<UserDto>(user);
-        return new ApiResponse<UserDto>(true, "User retrieved successfully", userDto);
+        return new ApiResponse<UserDto>(true, "user retrieved successfully", userDto);
     }
 }

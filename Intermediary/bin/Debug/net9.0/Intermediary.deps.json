@@ -9,8 +9,8 @@
       "Intermediary/1.0.0": {
         "dependencies": {
           "AutoMapper": "12.0.1",
-          "Microsoft.Extensions.Configuration.Abstractions": "9.0.1",
-          "Presentation": "1.0.0"
+          "EntityLayer": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.1"
         },
         "runtime": {
           "Intermediary.dll": {}
@@ -151,12 +151,12 @@
           }
         }
       },
-      "Presentation/1.0.0": {
+      "EntityLayer/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.1"
         },
         "runtime": {
-          "Presentation.dll": {
+          "EntityLayer.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -268,7 +268,7 @@
       "path": "microsoft.extensions.primitives/9.0.1",
       "hashPath": "microsoft.extensions.primitives.9.0.1.nupkg.sha512"
     },
-    "Presentation/1.0.0": {
+    "EntityLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

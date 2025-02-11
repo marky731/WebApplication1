@@ -1,0 +1,13 @@
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/bin/Debug/net9.0/EntityLayer.deps.json
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/bin/Debug/net9.0/EntityLayer.dll
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/bin/Debug/net9.0/EntityLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.csproj.AssemblyReference.cache
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.AssemblyInfoInputs.cache
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.AssemblyInfo.cs
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.csproj.CoreCompileInputs.cache
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.sourcelink.json
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.dll
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/refint/EntityLayer.dll
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/EntityLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/EntityLayer/obj/Debug/net9.0/ref/EntityLayer.dll

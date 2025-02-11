@@ -1,6 +1,6 @@
 using AutoMapper;
-using Presentation.Dtos;
-using Presentation.Models;
+using EntityLayer.Dtos;
+using EntityLayer.Models;
 
 namespace Intermediary.Mappers;
 
@@ -8,7 +8,7 @@ public class UserProfile : Profile
 {
     public UserProfile()
     {
-        CreateMap<User, UserToAddDto>().ReverseMap();
-        CreateMap<UserDto, User>().ReverseMap();
+        // CreateMap<user, UserToAddDto>().ReverseMap();
+        CreateMap<UserDto, user>().ReverseMap();
     }
 }
