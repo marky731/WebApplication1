@@ -19,10 +19,10 @@ with open("Users.json", "r") as file:
 for user in users:
     cursor.execute(
         """
-        INSERT INTO public.users ("Id", "Firstname", "Surname", "Gender") 
-        VALUES (%s, %s, %s, %s)
+        INSERT INTO public.users ("Firstname", "Surname", "Gender") 
+        VALUES (%s, %s, %s)
         """,
-        (user["UserId"]+1002, user["FirstName"], user["LastName"], user["Gender"])
+        (user["FirstName"], user["LastName"], user["Gender"])
     )
 
 # Commit and close connection
