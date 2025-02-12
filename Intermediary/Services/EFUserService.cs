@@ -27,10 +27,10 @@ public class EfUserService : IUserService
 
     public ApiResponse<UserDto> CreateUser(UserDto userDto)
     {
-        var user = _mapper.Map<user>(userDto);
+        var user = _mapper.Map<User>(userDto);
         _userRepository.AddUser(user);  // Call repository method
 
-        return new ApiResponse<UserDto>(true, "user added successfully", userDto);
+        return new ApiResponse<UserDto>(true, "User added successfully", userDto);
     }
 
     public ApiResponse<UserDto> UpdateUser(UserDto userDto)
@@ -38,13 +38,13 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userDto.Id);  // Call repository method
         if (user == null)
         {
-            throw new Exception("user not found");
+            throw new Exception("User not found");
         }
 
         _mapper.Map(userDto, user);
         _userRepository.UpdateUser(user);  // Call repository method
 
-        return new ApiResponse<UserDto>(true, "user updated successfully", userDto);
+        return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
     }
 
     public ApiResponse<string?> DeleteUser(int userId)
@@ -52,12 +52,12 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
-            throw new Exception("user not found");
+            throw new Exception("User not found");
         }
 
         _userRepository.DeleteUser(userId);  // Call repository method
 
-        return new ApiResponse<string?>(true, "user deleted successfully", null);
+        return new ApiResponse<string?>(true, "User deleted successfully", null);
     }
 
     public ApiResponse<UserDto> GetUserById(int userId)
@@ -65,10 +65,10 @@ public class EfUserService : IUserService
         var user = _userRepository.GetUserById(userId);  // Call repository method
         if (user == null)
         {
-            throw new Exception("user not found");
+            throw new Exception("User not found");
         }
 
         var userDto = _mapper.Map<UserDto>(user);
-        return new ApiResponse<UserDto>(true, "user retrieved successfully", userDto);
+        return new ApiResponse<UserDto>(true, "User retrieved successfully", userDto);
     }
 }

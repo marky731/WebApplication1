@@ -1,6 +1,7 @@
 using EntityLayer.Dtos;
 using EntityLayer.Models;
 using Intermediary.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
@@ -13,35 +14,35 @@ namespace DataAccess.Repositories
             _context = context;
         }
 
-        public List<user> GetAllUsers()
+        public List<User> GetAllUsers()
         {
-            return _context.users.OrderBy(u => u.Id).ToList();
+            return _context.Users.Include(u => u.Role).Include(u => u.Addresses).OrderBy(u => u.Id).ToList();
         }
 
-        public user? GetUserById(int id)
+        public User? GetUserById(int id)
         {
-            return _context.users.Find(id);
+            return _context.Users.Include(u => u.Role).Include(u => u.Addresses).FirstOrDefault(u => u.Id == id);
         }
 
         
-        public void AddUser(user user)
+        public void AddUser(User user)
         {
-            _context.users.Add(user);
+            _context.Users.Add(user);
             _context.SaveChanges();
         }
 
-        public void UpdateUser(user? user)
+        public void UpdateUser(User user)
         {
-            _context.users.Update(user);
+            _context.Users.Update(user);
             _context.SaveChanges();
         }
 
         public void DeleteUser(int id)
         {
-            var user = _context.users.Find(id);
+            var user = _context.Users.Find(id);
             if (user != null)
             {
-                _context.users.Remove(user);
+                _context.Users.Remove(user);
                 _context.SaveChanges();
             }
         }

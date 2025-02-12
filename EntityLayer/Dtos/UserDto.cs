@@ -1,27 +1,34 @@
-namespace EntityLayer.Dtos;
-
-public class UserDto
+namespace EntityLayer.Dtos
 {
-    public int Id { get; set; }
-    public string Firstname {get; set;}
-    public string Surname {get; set;}
-    public string Gender {get; set;}
-
-
-    public UserDto()
+    public class UserDto
     {
-        if (Firstname == null)
+        public int Id { get; set; }
+        public string Firstname { get; set; }
+        public string Surname { get; set; }
+        public string Gender { get; set; }
+        public int RoleId { get; set; }
+        public RoleDto Role { get; set; }
+        public ICollection<AddressDto> Addresses { get; set; }
+        
+        
+        public UserDto()
         {
-            Firstname = "";
-        }
-        if (Surname == null)
-        {
-            Surname = "";
-        }
+            if (Firstname == null)
+            {
+                Firstname = "";
+            }
 
-        if (Gender == null)
-        {
-            Gender = "";
+            if (Surname == null)
+            {
+                Surname = "";
+            }
+
+            if (Gender == null)
+            {
+                Gender = "";
+            }
+            
         }
     }
+
 }

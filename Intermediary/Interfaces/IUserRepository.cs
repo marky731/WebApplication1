@@ -5,10 +5,10 @@ namespace Intermediary.Interfaces
 {
     public interface IUserRepository
     {
-        List<user> GetAllUsers();
-        user? GetUserById(int id);
-        void AddUser(user userToAddDto);
-        void UpdateUser(user? user);
+        List<User> GetAllUsers();
+        User? GetUserById(int id);
+        void AddUser(User userToAddDto);
+        void UpdateUser(User user);
         void DeleteUser(int id);
     }
 }

@@ -1,0 +1,73 @@
+[
+    {
+        "Id": 1,
+        "Street": "123 Main St",
+        "City": "Springfield",
+        "State": "IL",
+        "Zip": "62701"
+
+    },
+    {
+        "Id": 2,
+        "Street": "456 Elm St",
+        "City": "Munich",
+        "State": "IL",
+        "Zip": "62702"
+    },
+    {
+        "Id": 3,
+        "Street": "789 Oak St",
+        "City": "Vienna",
+        "State": "IL",
+        "Zip": "62703"
+    },
+    {
+        "Id": 4,
+        "Street": "1011 Pine St",
+        "City": "Istanbul",
+        "State": "IL",
+        "Zip": "62704"
+    },
+    {
+        "Id": 5,
+        "Street": "1213 Cedar St",
+        "City": "Madrid",
+        "State": "IL",
+        "Zip": "62705"
+    },
+    {
+        "Id": 6,
+        "Street": "1415 Maple St",
+        "City": "Berlin",
+        "State": "IL",
+        "Zip": "62706"
+    },
+    {
+        "Id": 7,
+        "Street": "1617 Walnut St",
+        "City": "Rome",
+        "State": "IL",
+        "Zip": "62707"
+    },
+    {
+        "Id": 8,
+        "Street": "1819 Cherry St",
+        "City": "Bursa",
+        "State": "IL",
+        "Zip": "62708"
+    },
+    {
+        "Id": 9,
+        "Street": "2021 Birch St",
+        "City": "Hatay",
+        "State": "IL",
+        "Zip": "62709"
+    },
+    {
+        "Id": 10,
+        "Street": "2223 Ash St",
+        "City": "Adana",
+        "State": "IL",
+        "Zip": "62710"
+    }
+]

@@ -52,8 +52,8 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 });
 
 var app = builder.Build();
-var dbContext = app.Services.GetRequiredService<AppDbContext>();
-dbContext.Database.Migrate();
+// var dbContext = app.Services.GetRequiredService<AppDbContext>();
+// dbContext.Database.Migrate();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

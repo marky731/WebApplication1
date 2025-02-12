@@ -20,7 +20,7 @@
 //         string sql = @"
 //             SELECT *
 //             FROM TutorialAppSchema.Users ORDER BY id ASC";
-//         IEnumerable<user> users = _context.LoadData<user>(sql);
+//         IEnumerable<User> users = _context.LoadData<User>(sql);
 //         List<UserDto> userDtos = _mapper.Map<List<UserDto>>(users);
 //
 //         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
@@ -29,7 +29,7 @@
 //
 //     public ApiResponse<string> CreateUser(UserDto userDto)
 //     {
-//         var user = _mapper.Map<user>(userDto);
+//         var User = _mapper.Map<User>(userDto);
 //
 //         string sql = @"
 //             INSERT INTO TutorialAppSchema.Users(
@@ -39,21 +39,21 @@
 //                 Gender,
 //                 Active
 //             ) VALUES (" +
-//                      "'" + user.FirstName +
-//                      "', '" + user.LastName +
-//                      "', '" + user.Email +
-//                      "', '" + user.Gender +
-//                      "', '" + user.Active +
+//                      "'" + User.FirstName +
+//                      "', '" + User.LastName +
+//                      "', '" + User.Email +
+//                      "', '" + User.Gender +
+//                      "', '" + User.Active +
 //                      "')";
 //
 //         Console.WriteLine(sql);
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<string>(true, "user added successfully", null);
+//             return new ApiResponse<string>(true, "User added successfully", null);
 //         }
 //
-//         throw new Exception("Failed to Add user");
+//         throw new Exception("Failed to Add User");
 //     }
 //
 //     public ApiResponse<UserDto> UpdateUser(UserDto userDto)
@@ -71,10 +71,10 @@
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<UserDto>(true, "user updated successfully", userDto);
+//             return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
 //         }
 //
-//         throw new Exception("Failed to Update user");
+//         throw new Exception("Failed to Update User");
 //     }
 //
 //     public ApiResponse<string> DeleteUser(int userId)
@@ -87,10 +87,10 @@
 //
 //         if (_context.ExecuteSql(sql))
 //         {
-//             return new ApiResponse<string>(true, "user deleted successfully", null);
+//             return new ApiResponse<string>(true, "User deleted successfully", null);
 //         }
 //
-//         throw new Exception("Failed to Delete user");
+//         throw new Exception("Failed to Delete User");
 //     }
 //
 //
@@ -100,8 +100,8 @@
 //             SELECT *
 //             FROM TutorialAppSchema.Users
 //                 WHERE id = " + userId.ToString(); //"7"
-//         user user = _context.LoadDataSingle<user>(sql);
-//         UserDto userDtos = _mapper.Map<UserDto>(user);
-//         return new ApiResponse<UserDto>(true, "user retrieved successfully", userDtos);
+//         User User = _context.LoadDataSingle<User>(sql);
+//         UserDto userDtos = _mapper.Map<UserDto>(User);
+//         return new ApiResponse<UserDto>(true, "User retrieved successfully", userDtos);
 //     }
 // }
