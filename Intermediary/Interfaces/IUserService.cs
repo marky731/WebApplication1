@@ -5,7 +5,7 @@ namespace Intermediary.Interfaces;
 
 public interface IUserService 
 {
-    ApiResponse<List<UserDto>> GetAllUsers();
+    ApiResponse<List<UserDto>> GetAllUsers(int pageNumber, int pageSize);
     ApiResponse<UserDto> GetUserById(int id);
     ApiResponse<UserDto> CreateUser(UserDto userDto);
     ApiResponse<UserDto> UpdateUser(UserDto userDto); 

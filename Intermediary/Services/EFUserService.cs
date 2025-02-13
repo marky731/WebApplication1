@@ -17,9 +17,9 @@ public class EfUserService : IUserService
         _mapper = mapper;
     }
 
-    public ApiResponse<List<UserDto>> GetAllUsers()
+    public ApiResponse<List<UserDto>> GetAllUsers(int pageNumber, int pageSize)
     {
-        var users = _userRepository.GetAllUsers();  // Call repository method
+        var users = _userRepository.GetAllUsers(pageNumber, pageSize);
         var userDtos = _mapper.Map<List<UserDto>>(users);
 
         return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);

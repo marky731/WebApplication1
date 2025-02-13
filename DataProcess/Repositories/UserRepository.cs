@@ -14,9 +14,15 @@ namespace DataAccess.Repositories
             _context = context;
         }
 
-        public List<User> GetAllUsers()
+        public List<User> GetAllUsers(int pageNumber, int pageSize)
         {
-            return _context.Users.Include(u => u.Role).Include(u => u.Addresses).OrderBy(u => u.Id).ToList();
+            return _context.Users
+                .Include(u => u.Role)
+                .Include(u => u.Addresses)
+                .OrderBy(u => u.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
 
         public User? GetUserById(int id)

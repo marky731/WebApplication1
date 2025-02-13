@@ -18,7 +18,7 @@ namespace ApiLayer.Controllers
         }
 
         [HttpGet()]
-        public ApiResponse<List<UserDto>> GetUsers() => _userService.GetAllUsers();
+        public ApiResponse<List<UserDto>> GetUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10) => _userService.GetAllUsers(pageNumber, pageSize);
 
         [HttpGet("{userId}")]
         public ApiResponse<UserDto> GetSingleUser(int userId) => _userService.GetUserById(userId);

@@ -5,7 +5,7 @@ namespace Intermediary.Interfaces
 {
     public interface IUserRepository
     {
-        List<User> GetAllUsers();
+        List<User> GetAllUsers(int pageNumber, int pageSize);
         User? GetUserById(int id);
         void AddUser(User userToAddDto);
         void UpdateUser(User user);
