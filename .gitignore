@@ -1,0 +1,56 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore Rider project files
+.idea/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore logs
+*.log
+
+# Ignore NuGet packages
+*.nupkg
+packages/
+
+# Ignore compiled DLLs
+*.dll
+*.pdb
+*.exe
+
+# Ignore coverage results
+*.coverage
+*.coveragexml
+
+# Ignore publish output
+publish/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.cache
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Ignore Rider specific files
+.idea/
+.idea.WebApplication1.dir/
+.idea.ApiLayer.dir/
+
+# Ignore static web assets
+staticwebassets/
+
+# Ignore EF migrations
+Migrations/
+
+# Ignore user secrets
+secrets.json
+
+# Ignore VS Code settings
+.vscode/
