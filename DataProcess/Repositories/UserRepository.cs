@@ -30,9 +30,16 @@ namespace DataAccess.Repositories
             return _context.Users.Include(u => u.Role).Include(u => u.Addresses).FirstOrDefault(u => u.Id == id);
         }
 
-        
+
         public void AddUser(User user)
         {
+            if (user.Addresses != null && user.Addresses.Any())
+            {
+                foreach (var address in user.Addresses)
+                {
+                    _context.Addresses.Add(address);
+                }
+            }
             _context.Users.Add(user);
             _context.SaveChanges();
         }

@@ -10,25 +10,6 @@ namespace EntityLayer.Dtos
         public RoleDto Role { get; set; }
         public ICollection<AddressDto> Addresses { get; set; }
         
-        
-        public UserDto()
-        {
-            if (Firstname == null)
-            {
-                Firstname = "";
-            }
-
-            if (Surname == null)
-            {
-                Surname = "";
-            }
-
-            if (Gender == null)
-            {
-                Gender = "";
-            }
-            
-        }
     }
 
 }

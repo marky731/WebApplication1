@@ -1,3 +1,5 @@
+using EntityLayer.Models;
+
 namespace EntityLayer.Dtos
 {
     public class UserToAddDto
@@ -5,25 +7,8 @@ namespace EntityLayer.Dtos
         public string Firstname { get; set; }
         public string Surname { get; set; }
         public string Gender { get; set; }
-
-        public UserToAddDto()
-        {
-            
-            if (Firstname == null)
-            {
-                Firstname = "";
-            }
-
-            if (Surname == null)
-            {
-                Surname = "";
-            }
-
-
-            if (Gender == null)
-            {
-                Gender = "";
-            }
-        }
+        public int RoleId { get; set; }
+        public ICollection<Address> Addresses { get; set; }
+        
     }
 }

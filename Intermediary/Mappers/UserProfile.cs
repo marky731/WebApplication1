@@ -9,6 +9,7 @@ namespace Intermediary.Mappers
         public UserProfile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserToAddDto>().ReverseMap();
             CreateMap<Role, RoleDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
         }

@@ -28,7 +28,7 @@ namespace ApiLayer.Controllers
 
 
         [HttpPost()]
-        public ApiResponse<UserDto> AddUser(UserDto userDto) => _userService.CreateUser(userDto);
+        public ApiResponse<UserToAddDto> AddUser(UserToAddDto userToAddDto) => _userService.CreateUser(userToAddDto);
 
 
         [HttpDelete("")]

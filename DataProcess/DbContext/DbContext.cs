@@ -22,7 +22,7 @@ namespace DataAccess.DbContext
 
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Addresses)
-                .WithOne(a => a.User)
+                .WithOne()
                 .HasForeignKey(a => a.UserId);
 
             // modelBuilder.Entity<Address>()
