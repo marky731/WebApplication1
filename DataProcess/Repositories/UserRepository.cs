@@ -40,15 +40,31 @@ namespace DataAccess.Repositories
                     _context.Addresses.Add(address);
                 }
             }
+
             _context.Users.Add(user);
             _context.SaveChanges();
         }
 
         public void UpdateUser(User user)
         {
-            _context.Users.Update(user);
-            _context.SaveChanges();
+            // Retrieve the existing user along with its related data.
+            var existingUser = _context.Users
+                .Include(u => u.Addresses)
+                .FirstOrDefault(u => u.Id == user.Id);
+
+            if (existingUser != null)
+            {
+                // Remove the existing user (and any dependent data, if cascade delete is configured)
+                _context.Users.Remove(existingUser);
+                _context.SaveChanges();
+
+                // Add the new user with the updated RoleId (and other properties)
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
         }
+
+
 
         public void DeleteUser(int id)
         {
