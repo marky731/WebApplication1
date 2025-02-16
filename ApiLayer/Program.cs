@@ -49,6 +49,10 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     // containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
     //     .As<IMapper>()
     //     .SingleInstance();
+    containerBuilder.RegisterType<EfRoleService>().As<IRoleService>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<EfAddressService>().As<IAddressService>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<RoleRepository>().As<IRoleRepository>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<AddressRepository>().As<IAddressRepository>().InstancePerLifetimeScope();
 });
 
 var app = builder.Build();
