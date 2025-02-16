@@ -3,13 +3,11 @@ using EntityLayer.Dtos;
 
 namespace Intermediary.Interfaces;
 
-public interface IUserService 
+public interface IUserService
 {
-    ApiResponse<List<UserDto>> GetAllUsers(int pageNumber, int pageSize);
-    ApiResponse<UserDto> GetUserById(int id);
-    ApiResponse<UserToAddDto> CreateUser(UserToAddDto userToAddDto);
-    ApiResponse<UserDto> UpdateUser(UserDto userDto); 
-    ApiResponse<string?> DeleteUser(int id);
-    
-    
+    Task<ApiResponse<List<UserDto>>> GetAllUsers(int pageNumber, int pageSize);
+    Task<ApiResponse<UserDto>> GetUserById(int id);
+    Task<ApiResponse<UserToAddDto>> CreateUser(UserToAddDto userToAddDto);
+    Task<ApiResponse<UserDto>> UpdateUser(UserDto userDto);
+    Task<ApiResponse<string?>> DeleteUser(int id);
 }

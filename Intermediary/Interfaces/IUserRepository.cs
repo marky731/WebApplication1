@@ -1,14 +1,9 @@
-using EntityLayer.Dtos;
 using EntityLayer.Models;
 
 namespace Intermediary.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IGenericRepository<User>
     {
-        List<User> GetAllUsers(int pageNumber, int pageSize);
-        User? GetUserById(int id);
-        void AddUser(User userToAddDto);
-        void UpdateUser(User user);
-        void DeleteUser(int id);
+        // Any additional user-specific methods can be added here
     }
 }

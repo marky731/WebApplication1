@@ -1,79 +1,45 @@
-using EntityLayer.Dtos;
+using DataAccess.DbContext;
 using EntityLayer.Models;
 using Intermediary.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly DbContext.AppDbContext _context;
-
-        public UserRepository(DbContext.AppDbContext context)
+        public UserRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
 
-        public List<User> GetAllUsers(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<User>> GetAllAsync(int pageNumber, int pageSize)
         {
-            return _context.Users
+            return await _dbSet
                 .Include(u => u.Role)
                 .Include(u => u.Addresses)
                 .OrderBy(u => u.Id)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .ToList();
+                .ToListAsync();
         }
 
-        public User? GetUserById(int id)
+        public override async Task<User?> GetByIdAsync(int id)
         {
-            return _context.Users.Include(u => u.Role).Include(u => u.Addresses).FirstOrDefault(u => u.Id == id);
+            return await _dbSet
+                .Include(u => u.Role)
+                .Include(u => u.Addresses)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
-
-        public void AddUser(User user)
+        public override async Task AddAsync(User entity)
         {
-            if (user.Addresses != null && user.Addresses.Any())
+            if (entity.Addresses != null && entity.Addresses.Any())
             {
-                foreach (var address in user.Addresses)
+                foreach (var address in entity.Addresses)
                 {
-                    _context.Addresses.Add(address);
+                    await _context.Addresses.AddAsync(address);
                 }
             }
-
-            _context.Users.Add(user);
-            _context.SaveChanges();
-        }
-
-        public void UpdateUser(User user)
-        {
-            // Retrieve the existing user along with its related data.
-            var existingUser = _context.Users
-                .Include(u => u.Addresses)
-                .FirstOrDefault(u => u.Id == user.Id);
-
-            if (existingUser != null)
-            {
-                // Remove the existing user (and any dependent data, if cascade delete is configured)
-                _context.Users.Remove(existingUser);
-                _context.SaveChanges();
-
-                // Add the new user with the updated RoleId (and other properties)
-                _context.Users.Add(user);
-                _context.SaveChanges();
-            }
-        }
-
-
-
-        public void DeleteUser(int id)
-        {
-            var user = _context.Users.Find(id);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                _context.SaveChanges();
-            }
+            await base.AddAsync(entity);
         }
     }
 }

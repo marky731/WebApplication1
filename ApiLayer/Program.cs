@@ -46,9 +46,9 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     // Register services with Autofac
     containerBuilder.RegisterType<EfUserService>().As<IUserService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
-    containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
-        .As<IMapper>()
-        .SingleInstance();
+    // containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
+    //     .As<IMapper>()
+    //     .SingleInstance();
 });
 
 var app = builder.Build();
