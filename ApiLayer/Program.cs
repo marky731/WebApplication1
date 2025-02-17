@@ -13,17 +13,14 @@ using Intermediary.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(UserProfile));
 
-// Register DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Register CORS policies
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
@@ -42,23 +39,18 @@ builder.Services.AddCors((options) =>
     });
 });
 
-// Create Autofac container builder
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     // Register services with Autofac
     containerBuilder.RegisterType<EfUserService>().As<IUserService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
-    // containerBuilder.Register(context => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<UserProfile>())))
-    //     .As<IMapper>()
-    //     .SingleInstance();
     containerBuilder.RegisterType<EfRoleService>().As<IRoleService>().InstancePerLifetimeScope();
-    containerBuilder.RegisterType<EfAddressService>().As<IAddressService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<RoleRepository>().As<IRoleRepository>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<EfAddressService>().As<IAddressService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<AddressRepository>().As<IAddressRepository>().InstancePerLifetimeScope();
 });
 
-// Add this after your existing service registrations
 builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
 builder.Services.AddScoped<IValidator<UserToAddDto>, UserToAddDtoValidator>();
 
@@ -66,7 +58,6 @@ var app = builder.Build();
 // var dbContext = app.Services.GetRequiredService<AppDbContext>();
 // dbContext.Database.Migrate();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();

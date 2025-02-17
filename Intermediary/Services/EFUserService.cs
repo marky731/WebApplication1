@@ -16,7 +16,7 @@ public class EfUserService : IUserService
     private readonly IValidator<UserToAddDto> _userToAddValidator;
 
     public EfUserService(
-        IUserRepository userRepository, 
+        IUserRepository userRepository,
         IMapper mapper,
         IValidator<UserDto> userValidator,
         IValidator<UserToAddDto> userToAddValidator)
@@ -82,5 +82,4 @@ public class EfUserService : IUserService
         await _userRepository.SaveChangesAsync();
         return new ApiResponse<string?>(true, "User deleted successfully", null);
     }
-    
 }

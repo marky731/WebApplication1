@@ -5,12 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    public class AddressRepository : GenericRepository<Address>, IAddressRepository
+    public class AddressRepository(AppDbContext context) : GenericRepository<Address>(context), IAddressRepository
     {
-        public AddressRepository(AppDbContext context) : base(context)
-        {
-        }
-
         public override async Task<IEnumerable<Address>> GetAllAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
