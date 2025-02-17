@@ -30,8 +30,9 @@ public class EfUserService : IUserService
     public async Task<ApiResponse<List<UserDto>>> GetAllUsers(int pageNumber, int pageSize)
     {
         var users = await _userRepository.GetAllAsync(pageNumber, pageSize);
+        var totalCount = await _userRepository.GetTotalCountAsync();
         var userDtos = _mapper.Map<List<UserDto>>(users);
-        return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos);
+        return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos, pageNumber, pageSize, totalCount);
     }
 
     public async Task<ApiResponse<UserDto>> GetUserById(int userId)
