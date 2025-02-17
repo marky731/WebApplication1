@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "oKbjMr/cuRw=",
+  "dgSpecHash": "jIbyG548NZE=",
   "success": true,
   "projectFilePath": "/Users/mac/RiderProjects/WebApplication1/Intermediary/Intermediary.csproj",
   "expectedPackageFiles": [
     "/Users/mac/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/mac/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.entityframeworkcore/9.0.1/microsoft.entityframeworkcore.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.1/microsoft.entityframeworkcore.abstractions.9.0.1.nupkg.sha512",

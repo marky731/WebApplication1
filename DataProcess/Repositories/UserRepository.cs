@@ -5,12 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    public class UserRepository : GenericRepository<User>, IUserRepository
+    public class UserRepository(AppDbContext context) : GenericRepository<User>(context), IUserRepository
     {
-        public UserRepository(AppDbContext context) : base(context)
-        {
-        }
-
         public override async Task<IEnumerable<User>> GetAllAsync(int pageNumber, int pageSize)
         {
             return await _dbSet

@@ -7,6 +7,9 @@ using Intermediary.Services;
 using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.DbContext;
+using EntityLayer.Dtos;
+using FluentValidation;
+using Intermediary.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +57,10 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterType<RoleRepository>().As<IRoleRepository>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<AddressRepository>().As<IAddressRepository>().InstancePerLifetimeScope();
 });
+
+// Add this after your existing service registrations
+builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
+builder.Services.AddScoped<IValidator<UserToAddDto>, UserToAddDtoValidator>();
 
 var app = builder.Build();
 // var dbContext = app.Services.GetRequiredService<AppDbContext>();

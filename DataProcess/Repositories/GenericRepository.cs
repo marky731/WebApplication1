@@ -33,9 +33,10 @@ namespace DataAccess.Repositories
             await _dbSet.AddAsync(entity);
         }
 
-        public virtual async Task UpdateAsync(T entity)
+        public virtual Task UpdateAsync(T entity)
         {
             _dbSet.Update(entity);
+            return Task.CompletedTask;
         }
 
         public virtual async Task DeleteAsync(int id)

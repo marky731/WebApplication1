@@ -3,6 +3,8 @@ using Intermediary.Interfaces;
 using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
 using EntityLayer.Models;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Intermediary.Services;
 
@@ -10,11 +12,19 @@ public class EfUserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
+    private readonly IValidator<UserDto> _userValidator;
+    private readonly IValidator<UserToAddDto> _userToAddValidator;
 
-    public EfUserService(IUserRepository userRepository, IMapper mapper)
+    public EfUserService(
+        IUserRepository userRepository, 
+        IMapper mapper,
+        IValidator<UserDto> userValidator,
+        IValidator<UserToAddDto> userToAddValidator)
     {
         _userRepository = userRepository;
         _mapper = mapper;
+        _userValidator = userValidator;
+        _userToAddValidator = userToAddValidator;
     }
 
     public async Task<ApiResponse<List<UserDto>>> GetAllUsers(int pageNumber, int pageSize)
@@ -36,6 +46,12 @@ public class EfUserService : IUserService
 
     public async Task<ApiResponse<UserToAddDto>> CreateUser(UserToAddDto userToAddDto)
     {
+        ValidationResult validationResult = await _userToAddValidator.ValidateAsync(userToAddDto);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(validationResult.Errors);
+        }
+
         var user = _mapper.Map<User>(userToAddDto);
         await _userRepository.AddAsync(user);
         await _userRepository.SaveChangesAsync();
@@ -44,6 +60,12 @@ public class EfUserService : IUserService
 
     public async Task<ApiResponse<UserDto>> UpdateUser(UserDto userDto)
     {
+        ValidationResult validationResult = await _userValidator.ValidateAsync(userDto);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(validationResult.Errors);
+        }
+
         var user = await _userRepository.GetByIdAsync(userDto.Id);
         if (user == null)
             throw new Exception("User not found");
