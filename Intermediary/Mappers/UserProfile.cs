@@ -12,6 +12,7 @@ namespace Intermediary.Mappers
             CreateMap<User, UserToAddDto>().ReverseMap();
             CreateMap<Role, RoleDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<ProfilePic, ProfilePicDto>().ReverseMap();
         }
     }
 }
