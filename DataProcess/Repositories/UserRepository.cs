@@ -37,5 +37,40 @@ namespace DataAccess.Repositories
             }
             await base.AddAsync(entity);
         }
+
+        public override async Task UpdateAsync(User entity)
+        {
+            var existingUser = await _dbSet
+                .Include(u => u.Addresses)
+                .FirstOrDefaultAsync(u => u.Id == entity.Id);
+
+            if (existingUser != null)
+            {
+                // Detach the existing role to prevent tracking conflicts
+                if (existingUser.Role != null)
+                {
+                    _context.Entry(existingUser.Role).State = EntityState.Detached;
+                }
+                
+                // Update basic properties
+                existingUser.Firstname = entity.Firstname;
+                existingUser.Surname = entity.Surname;
+                existingUser.Gender = entity.Gender;
+                existingUser.RoleId = entity.RoleId;
+
+                // Handle addresses if needed
+                if (entity.Addresses != null)
+                {
+                    // Remove existing addresses
+                    _context.Addresses.RemoveRange(existingUser.Addresses);
+                    
+                    // Add new addresses
+                    existingUser.Addresses = entity.Addresses;
+                }
+
+                // Update the entity state
+                _context.Entry(existingUser).State = EntityState.Modified;
+            }
+        }
     }
 }

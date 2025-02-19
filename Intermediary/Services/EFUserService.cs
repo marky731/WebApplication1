@@ -67,14 +67,31 @@ public class EfUserService : IUserService
             throw new ValidationException(validationResult.Errors);
         }
 
-        var user = await _userRepository.GetByIdAsync(userDto.Id);
-        if (user == null)
+        var existingUser = await _userRepository.GetByIdAsync(userDto.Id);
+        if (existingUser == null)
             throw new Exception("User not found");
 
-        _mapper.Map(userDto, user);
-        await _userRepository.UpdateAsync(user);
+        // Create a new User entity with only the necessary properties
+        var userToUpdate = new User
+        {
+            Id = userDto.Id,
+            Firstname = userDto.Firstname,
+            Surname = userDto.Surname,
+            Gender = userDto.Gender,
+            RoleId = userDto.RoleId,
+            Addresses = userDto.Addresses != null 
+                ? _mapper.Map<ICollection<Address>>(userDto.Addresses) 
+                : null
+        };
+
+        await _userRepository.UpdateAsync(userToUpdate);
         await _userRepository.SaveChangesAsync();
-        return new ApiResponse<UserDto>(true, "User updated successfully", userDto);
+        
+        // Fetch the updated user with related data
+        var updatedUser = await _userRepository.GetByIdAsync(userDto.Id);
+        var updatedUserDto = _mapper.Map<UserDto>(updatedUser);
+        
+        return new ApiResponse<UserDto>(true, "User updated successfully", updatedUserDto);
     }
 
     public async Task<ApiResponse<string?>> DeleteUser(int userId)
