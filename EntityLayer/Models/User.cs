@@ -9,6 +9,7 @@ namespace EntityLayer.Models
         public int RoleId { get; set; }
         public Role Role { get; set; }
         public ICollection<Address> Addresses { get; set; }
-        public ICollection<ProfilePic> ProfilePics { get; set; }
+        public virtual Image Image { get; set; }
+        public int ImageId { get; set; }
     }
 }

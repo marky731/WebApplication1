@@ -50,11 +50,12 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterType<EfAddressService>().As<IAddressService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<AddressRepository>().As<IAddressRepository>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<EfProfilePicService>().As<IProfilePicService>().InstancePerLifetimeScope();
-    containerBuilder.RegisterType<ProfilePicRepository>().As<IProfilePicRepository>().InstancePerLifetimeScope();
+    containerBuilder.RegisterType<ImageRepository>().As<IProfilePicRepository>().InstancePerLifetimeScope();
 });
 
 builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
 builder.Services.AddScoped<IValidator<UserToAddDto>, UserToAddDtoValidator>();
+builder.Services.AddScoped<IProfilePicService, EfProfilePicService>();
 
 var app = builder.Build();
 // var dbContext = app.Services.GetRequiredService<AppDbContext>();

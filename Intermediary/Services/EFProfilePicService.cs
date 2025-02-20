@@ -17,42 +17,42 @@ namespace Intermediary.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<List<ProfilePicDto>>> GetAllProfilePics(int pageNumber, int pageSize)
+        public async Task<ApiResponse<List<ImageDto>>> GetAllProfilePics(int pageNumber, int pageSize)
         {
             var profilePics = await _profilePicRepository.GetAllAsync(pageNumber, pageSize);
             var totalCount = await _profilePicRepository.GetTotalCountAsync();
-            var profilePicDtos = _mapper.Map<List<ProfilePicDto>>(profilePics);
-            return new ApiResponse<List<ProfilePicDto>>(true, "Profile pictures retrieved successfully", profilePicDtos, pageNumber, pageSize, totalCount);
+            var profilePicDtos = _mapper.Map<List<ImageDto>>(profilePics);
+            return new ApiResponse<List<ImageDto>>(true, "Profile pictures retrieved successfully", profilePicDtos, pageNumber, pageSize, totalCount);
         }
 
-        public async Task<ApiResponse<ProfilePicDto>> GetProfilePicById(int profilePicId)
+        public async Task<ApiResponse<ImageDto>> GetProfilePicById(int profilePicId)
         {
             var profilePic = await _profilePicRepository.GetByIdAsync(profilePicId);
             if (profilePic == null)
                 throw new Exception("Profile picture not found");
 
-            var profilePicDto = _mapper.Map<ProfilePicDto>(profilePic);
-            return new ApiResponse<ProfilePicDto>(true, "Profile picture retrieved successfully", profilePicDto);
+            var profilePicDto = _mapper.Map<ImageDto>(profilePic);
+            return new ApiResponse<ImageDto>(true, "Profile picture retrieved successfully", profilePicDto);
         }
 
-        public async Task<ApiResponse<ProfilePicDto>> CreateProfilePic(ProfilePicDto profilePicDto)
+        public async Task<ApiResponse<ImageDto>> CreateProfilePic(ImageDto imageDto)
         {
-            var profilePic = _mapper.Map<ProfilePic>(profilePicDto);
+            var profilePic = _mapper.Map<Image>(imageDto);
             await _profilePicRepository.AddAsync(profilePic);
             await _profilePicRepository.SaveChangesAsync();
-            return new ApiResponse<ProfilePicDto>(true, "Profile picture added successfully", profilePicDto);
+            return new ApiResponse<ImageDto>(true, "Profile picture added successfully", imageDto);
         }
 
-        public async Task<ApiResponse<ProfilePicDto>> UpdateProfilePic(ProfilePicDto profilePicDto)
+        public async Task<ApiResponse<ImageDto>> UpdateProfilePic(ImageDto imageDto)
         {
-            var profilePic = await _profilePicRepository.GetByIdAsync(profilePicDto.Id);
+            var profilePic = await _profilePicRepository.GetByIdAsync(imageDto.Id);
             if (profilePic == null)
                 throw new Exception("Profile picture not found");
 
-            _mapper.Map(profilePicDto, profilePic);
+            _mapper.Map(imageDto, profilePic);
             await _profilePicRepository.UpdateAsync(profilePic);
             await _profilePicRepository.SaveChangesAsync();
-            return new ApiResponse<ProfilePicDto>(true, "Profile picture updated successfully", profilePicDto);
+            return new ApiResponse<ImageDto>(true, "Profile picture updated successfully", imageDto);
         }
 
         public async Task<ApiResponse<string?>> DeleteProfilePic(int profilePicId)

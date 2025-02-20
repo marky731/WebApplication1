@@ -1,6 +1,6 @@
 namespace EntityLayer.Dtos;
 
-public class ProfilePicDto
+public class ImageDto
 {
     public int Id { get; set; }
     public int UserId { get; set; }

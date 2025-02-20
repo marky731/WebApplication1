@@ -12,7 +12,7 @@ namespace DataAccess.DbContext
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<ProfilePic> ProfilePics { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,9 +27,9 @@ namespace DataAccess.DbContext
                 .HasForeignKey(a => a.UserId);
 
             modelBuilder.Entity<User>()
-                .HasMany(u => u.ProfilePics)
-                .WithOne()
-                .HasForeignKey(p => p.UserId)
+                .HasOne(u => u.Image)
+                .WithOne(i => i.User)
+                .HasForeignKey<Image>(i => i.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // modelBuilder.Entity<Address>()

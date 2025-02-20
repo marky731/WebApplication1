@@ -5,9 +5,9 @@ namespace Intermediary.Interfaces;
 
 public interface IProfilePicService
 {
-    Task<ApiResponse<List<ProfilePicDto>>> GetAllProfilePics(int pageNumber, int pageSize);
-    Task<ApiResponse<ProfilePicDto>> GetProfilePicById(int id);
-    Task<ApiResponse<ProfilePicDto>> CreateProfilePic(ProfilePicDto profilePicDto);
-    Task<ApiResponse<ProfilePicDto>> UpdateProfilePic(ProfilePicDto profilePicDto);
+    Task<ApiResponse<List<ImageDto>>> GetAllProfilePics(int pageNumber, int pageSize);
+    Task<ApiResponse<ImageDto>> GetProfilePicById(int id);
+    Task<ApiResponse<ImageDto>> CreateProfilePic(ImageDto imageDto);
+    Task<ApiResponse<ImageDto>> UpdateProfilePic(ImageDto imageDto);
     Task<ApiResponse<string?>> DeleteProfilePic(int id);
 } 

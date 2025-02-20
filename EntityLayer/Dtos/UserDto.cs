@@ -9,6 +9,6 @@ namespace EntityLayer.Dtos
         public int RoleId { get; set; }
         public RoleDto Role { get; set; }
         public ICollection<AddressDto> Addresses { get; set; }
-        public ICollection<ProfilePicDto> ProfilePics { get; set; }
+        public ICollection<ImageDto> ProfilePics { get; set; }
     }
 }

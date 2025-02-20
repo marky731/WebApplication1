@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    public class ProfilePicRepository(AppDbContext context) : GenericRepository<ProfilePic>(context), IProfilePicRepository
+    public class ImageRepository(AppDbContext context) : GenericRepository<Image>(context), IProfilePicRepository
     {
-        public override async Task<IEnumerable<ProfilePic>> GetAllAsync(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<Image>> GetAllAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .OrderBy(p => p.Id)

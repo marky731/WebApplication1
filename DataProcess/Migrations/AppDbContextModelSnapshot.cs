@@ -56,7 +56,7 @@ namespace DataAccess.Migrations
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("EntityLayer.Models.ProfilePic", b =>
+            modelBuilder.Entity("EntityLayer.Models.Image", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,10 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProfilePics");
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("EntityLayer.Models.Role", b =>
@@ -112,6 +115,9 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("ImageId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("RoleId")
                         .HasColumnType("integer");
 
@@ -135,6 +141,17 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EntityLayer.Models.Image", b =>
+                {
+                    b.HasOne("EntityLayer.Models.User", "User")
+                        .WithOne("Image")
+                        .HasForeignKey("EntityLayer.Models.Image", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EntityLayer.Models.User", b =>
                 {
                     b.HasOne("EntityLayer.Models.Role", "Role")
@@ -149,6 +166,9 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("EntityLayer.Models.User", b =>
                 {
                     b.Navigation("Addresses");
+
+                    b.Navigation("Image")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
