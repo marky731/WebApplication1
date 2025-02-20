@@ -18,3 +18,6 @@
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/EntityLayer.pdb
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.runtimeconfig.json
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.genruntimeconfig.cache
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Abstractions.dll
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.Extensions.Features.dll

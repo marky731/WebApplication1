@@ -7,7 +7,7 @@ public interface IProfilePicService
 {
     Task<ApiResponse<List<ImageDto>>> GetAllProfilePics(int pageNumber, int pageSize);
     Task<ApiResponse<ImageDto>> GetProfilePicById(int id);
-    Task<ApiResponse<ImageDto>> CreateProfilePic(ImageDto imageDto);
+    Task<ApiResponse<ImageUploadDto?>> CreateProfilePic(ImageUploadDto imageDto);
     Task<ApiResponse<ImageDto>> UpdateProfilePic(ImageDto imageDto);
     Task<ApiResponse<string?>> DeleteProfilePic(int id);
 } 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Z7ElwSo9pds=",
+  "dgSpecHash": "Y5jouw7Yw1c=",
   "success": true,
   "projectFilePath": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/ApiLayer.csproj",
   "expectedPackageFiles": [
@@ -42,9 +42,11 @@
     "/Users/mac/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.1/microsoft.extensions.dependencyinjection.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.1/microsoft.extensions.dependencyinjection.abstractions.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.dependencymodel/9.0.1/microsoft.extensions.dependencymodel.9.0.1.nupkg.sha512",
+    "/Users/mac/.nuget/packages/microsoft.extensions.diagnostics.abstractions/9.0.0/microsoft.extensions.diagnostics.abstractions.9.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.fileproviders.abstractions/9.0.1/microsoft.extensions.fileproviders.abstractions.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.fileproviders.physical/9.0.1/microsoft.extensions.fileproviders.physical.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.filesystemglobbing/9.0.1/microsoft.extensions.filesystemglobbing.9.0.1.nupkg.sha512",
+    "/Users/mac/.nuget/packages/microsoft.extensions.hosting.abstractions/9.0.0/microsoft.extensions.hosting.abstractions.9.0.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.logging/9.0.1/microsoft.extensions.logging.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.1/microsoft.extensions.logging.abstractions.9.0.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.objectpool/8.0.11/microsoft.extensions.objectpool.8.0.11.nupkg.sha512",

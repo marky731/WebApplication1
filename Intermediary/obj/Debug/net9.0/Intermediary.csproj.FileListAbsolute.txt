@@ -14,3 +14,6 @@
 /Users/mac/RiderProjects/WebApplication1/Intermediary/obj/Debug/net9.0/ref/Intermediary.dll
 /Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/EntityLayer.dll
 /Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/EntityLayer.pdb
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Abstractions.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+/Users/mac/RiderProjects/WebApplication1/Intermediary/bin/Debug/net9.0/Microsoft.Extensions.Features.dll

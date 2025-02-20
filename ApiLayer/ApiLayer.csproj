@@ -34,4 +34,9 @@
       <ProjectReference Include="..\Intermediary\Intermediary.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\profile_pictures\328f6f68-1b0c-4959-9a26-2bd3e3b6e07f.png" />
+      <None Include="wwwroot\wwwroot\profile_pictures\a0d4e87d-ea51-4518-acf0-8ca5ebc743a2.png" />
+    </ItemGroup>
+
 </Project>
