@@ -42,15 +42,14 @@ namespace Intermediary.Services
 
         public async Task<ApiResponse<ImageUploadDto?>> CreateProfilePic(ImageUploadDto uploadDto)
         {
-            
+
             // Generate unique file name
             var fileName = Guid.NewGuid() + Path.GetExtension(uploadDto.File.FileName);
 
             // Ensure directory exists
             Console.WriteLine($"WebRootPath: {_webHostEnvironment.WebRootPath}");
 
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath ?? Directory.GetCurrentDirectory(),
-                "wwwroot", "profile_pictures");
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "profile_pictures");
             Directory.CreateDirectory(uploadsFolder);
 
             // Save file to server

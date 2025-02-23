@@ -1,8 +1,11 @@
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.deps.json
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.runtimeconfig.json
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.dll
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.pdb
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/EntityLayer.dll
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Intermediary.dll
 /Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Intermediary.pdb
+/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/EntityLayer.pdb
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.csproj.AssemblyReference.cache
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.GeneratedMSBuildEditorConfig.editorconfig
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.AssemblyInfoInputs.cache
@@ -13,11 +16,5 @@
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.dll
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/refint/DataProcess.dll
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.pdb
-/Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/ref/DataProcess.dll
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/EntityLayer.dll
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/EntityLayer.pdb
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/DataProcess.runtimeconfig.json
 /Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/DataProcess.genruntimeconfig.cache
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Abstractions.dll
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
-/Users/mac/RiderProjects/WebApplication1/DataProcess/bin/Debug/net9.0/Microsoft.Extensions.Features.dll
+/Users/mac/RiderProjects/WebApplication1/DataProcess/obj/Debug/net9.0/ref/DataProcess.dll

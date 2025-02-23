@@ -52,9 +52,13 @@
               "target": "Package",
               "version": "[2.1.35, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -64,7 +68,7 @@
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -80,6 +84,10 @@
               "target": "Package",
               "version": "[9.0.1, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.6.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -87,6 +95,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.6.0, )"
             }
           },
           "imports": [
@@ -156,6 +168,14 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.6.0, )"
             }
           },
           "imports": [
@@ -230,13 +250,25 @@
               "target": "Package",
               "version": "[11.11.0, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.Extensions.Hosting.Abstractions": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.6.0, )"
             }
           },
           "imports": [

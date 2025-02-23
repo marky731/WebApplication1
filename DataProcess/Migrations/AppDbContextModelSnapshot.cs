@@ -17,7 +17,7 @@ namespace DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "9.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -107,6 +107,10 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("text");
@@ -117,6 +121,10 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("ImageId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("integer");

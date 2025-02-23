@@ -4,6 +4,9 @@ namespace EntityLayer.ApiResponse
 {
     public class ApiResponse<T>
     {
+        private bool v;
+        private object value;
+
         public PaginationInfo Pagination { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; }
@@ -23,11 +26,18 @@ namespace EntityLayer.ApiResponse
             Data = data;
         }
 
-        public ApiResponse(bool success, string message, T data)
+        public ApiResponse(bool success, string message, T data, List<string> validationErrors)
         {
             Success = success;
             Message = message;
             Data = data;        }
+
+        public ApiResponse(bool success, string message, T data)
+        {
+            Success = success;
+            Message = message;
+            Data = data;
+        }
     }
 
     public class PaginationInfo

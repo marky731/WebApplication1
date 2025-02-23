@@ -2,6 +2,7 @@ using Intermediary.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiLayer.Controllers
 {
@@ -17,6 +18,7 @@ namespace ApiLayer.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ApiResponse<List<RoleDto>>> GetRoles([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             return await _roleService.GetAllRoles(pageNumber, pageSize);

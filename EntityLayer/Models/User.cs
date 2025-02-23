@@ -10,6 +10,8 @@ namespace EntityLayer.Models
         public Role Role { get; set; }
         public ICollection<Address> Addresses { get; set; }
         public virtual Image Image { get; set; }
-        public int ImageId { get; set; }
+        public int? ImageId { get; set; }
+        public string? PasswordHash { get; set; }  // Add this
+        public string? Email { get; set; } // Add email property
     }
 }

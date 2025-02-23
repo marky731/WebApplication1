@@ -51,7 +51,7 @@ namespace DataAccess.Repositories
                 {
                     _context.Entry(existingUser.Role).State = EntityState.Detached;
                 }
-                
+
                 // Update basic properties
                 existingUser.Firstname = entity.Firstname;
                 existingUser.Surname = entity.Surname;
@@ -63,7 +63,7 @@ namespace DataAccess.Repositories
                 {
                     // Remove existing addresses
                     _context.Addresses.RemoveRange(existingUser.Addresses);
-                    
+
                     // Add new addresses
                     existingUser.Addresses = entity.Addresses;
                 }
@@ -71,6 +71,11 @@ namespace DataAccess.Repositories
                 // Update the entity state
                 _context.Entry(existingUser).State = EntityState.Modified;
             }
+        }
+
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

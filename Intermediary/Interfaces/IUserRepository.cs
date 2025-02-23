@@ -4,6 +4,6 @@ namespace Intermediary.Interfaces
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        // Any additional user-specific methods can be added here
+        Task<User?> GetByEmailAsync(string email); 
     }
 }
