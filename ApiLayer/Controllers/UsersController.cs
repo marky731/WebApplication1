@@ -4,7 +4,8 @@ using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using FluentValidation;
+using ApiLayer.Authorization;
+
 
 namespace ApiLayer.Controllers;
 
@@ -28,7 +29,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{userId}")]
-    [Authorize(Roles = "admin")]
+    [AuthorizeUserId]
     public async Task<ApiResponse<UserDto>> GetSingleUser(int userId)
     {
         if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userId.ToString())

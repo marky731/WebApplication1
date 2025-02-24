@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -94,8 +95,10 @@ builder.Services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
 builder.Services.AddScoped<IValidator<UserToAddDto>, UserToAddDtoValidator>();
 builder.Services.AddScoped<IValidator<UserRegisterDto>, UserRegisterDtoValidator>(); 
 
+builder.Services.AddSingleton<IAuthorizationHandler, UserIdAuthorizationHandler>(); 
+
 builder.Services.AddScoped<IProfilePicService, EfImageService>();
-builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>(); // Add PasswordHasher
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>(); 
 
 
 builder.Services.AddControllers();
@@ -103,7 +106,11 @@ builder.Services.AddControllers();
 builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("UserIdPolicy", policy =>
+        policy.Requirements.Add(new UserIdRequirement()));
+});
 
 builder.Services.AddEndpointsApiExplorer();
 
