@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Intermediary.Services
 {
-    public class EfProfilePicService : IProfilePicService
+    public class EfImageService : IProfilePicService
     {
         private readonly IProfilePicRepository _profilePicRepository;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public EfProfilePicService(IProfilePicRepository profilePicRepository, IMapper mapper, IWebHostEnvironment webHostEnvironment)
+        public EfImageService(IProfilePicRepository profilePicRepository, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _profilePicRepository = profilePicRepository;
             _mapper = mapper;
@@ -23,11 +23,10 @@ namespace Intermediary.Services
 
         public async Task<ApiResponse<List<ImageDto>>> GetAllProfilePics(int pageNumber, int pageSize)
         {
-            var profilePics = await _profilePicRepository.GetAllAsync(pageNumber, pageSize);
+            var profilePics = await _profilePicRepository.GetAllPaginatedAsync(pageNumber, pageSize);
             var totalCount = await _profilePicRepository.GetTotalCountAsync();
             var profilePicDtos = _mapper.Map<List<ImageDto>>(profilePics);
-            return new ApiResponse<List<ImageDto>>(true, "Profile pictures retrieved successfully", profilePicDtos,
-                pageNumber, pageSize, totalCount);
+            return new ApiResponse<List<ImageDto>>(true, "Profile pictures retrieved successfully", profilePicDtos);
         }
 
         public async Task<ApiResponse<ImageDto>> GetProfilePicById(int profilePicId)

@@ -15,7 +15,7 @@ public class EfUserService : IUserService
     private readonly IMapper _mapper;
     private readonly IValidator<UserDto> _userValidator;
     private readonly IValidator<UserToAddDto> _userToAddValidator;
-    private readonly IValidator<UserRegisterDto> _userRegisterValidator; // Add validator
+    private readonly IValidator<UserRegisterDto> _userRegisterValidator; 
     private readonly IPasswordHasher<User> _passwordHasher;
     private readonly IRoleRepository _roleRepository;
     private readonly IJwtService _jwtService;
@@ -26,7 +26,7 @@ public class EfUserService : IUserService
         IMapper mapper,
         IValidator<UserDto> userValidator,
         IValidator<UserToAddDto> userToAddValidator,
-        IValidator<UserRegisterDto> userRegisterValidator, // Inject validator
+        IValidator<UserRegisterDto> userRegisterValidator, 
         IPasswordHasher<User> passwordHasher,
         IRoleRepository roleRepository,
         IJwtService jwtService)
@@ -35,19 +35,19 @@ public class EfUserService : IUserService
         _mapper = mapper;
         _userValidator = userValidator;
         _userToAddValidator = userToAddValidator;
-        _userRegisterValidator = userRegisterValidator; // Assign validator
+        _userRegisterValidator = userRegisterValidator; 
         _passwordHasher = passwordHasher;
         _roleRepository = roleRepository;
         _jwtService = jwtService;
     }
     
-    public async Task<ApiResponse<List<UserDto>>> GetAllUsers(int pageNumber, int pageSize)
+    public async Task<ApiResponse<PaginatedResponse<List<UserDto>>>> GetAllUsers(int pageNumber, int pageSize)
     {
-        var users = await _userRepository.GetAllAsync(pageNumber, pageSize);
+        var users = await _userRepository.GetAllPaginatedAsync(pageNumber, pageSize);
         var totalCount = await _userRepository.GetTotalCountAsync();
         var userDtos = _mapper.Map<List<UserDto>>(users);
-        return new ApiResponse<List<UserDto>>(true, "Users retrieved successfully", userDtos, pageNumber,
-            pageSize, totalCount);
+        PaginatedResponse<List<UserDto>> paginatedResponse = new PaginatedResponse<List<UserDto>>(userDtos, pageNumber, pageSize, totalCount);
+        return new ApiResponse<PaginatedResponse<List<UserDto>>>(true, "Users retrieved successfully", paginatedResponse);
     }
 
     public async Task<ApiResponse<UserDto>> GetUserById(int userId)
@@ -97,7 +97,6 @@ public class EfUserService : IUserService
         if (existingUser == null)
             throw new Exception("User not found");
 
-        // Create a new User entity with only the necessary properties
         var userToUpdate = new User
         {
             Id = userDto.Id,
@@ -113,7 +112,6 @@ public class EfUserService : IUserService
         await _userRepository.UpdateAsync(userToUpdate);
         await _userRepository.SaveChangesAsync();
 
-        // Fetch the updated user with related data
         var updatedUser = await _userRepository.GetByIdAsync(userDto.Id);
         var updatedUserDto = _mapper.Map<UserDto>(updatedUser);
 
@@ -141,7 +139,6 @@ public class EfUserService : IUserService
             throw new Exception("User with this email already exists.");
         }
         
-        // Check if role exists
         var role = await _roleRepository.GetByIdAsync(userRegisterDto.RoleId);
         if (role == null)
         {
@@ -156,7 +153,6 @@ public class EfUserService : IUserService
             RoleId = userRegisterDto.RoleId,
         };
 
-        // Hash the password
         user.PasswordHash = _passwordHasher.HashPassword(user, userRegisterDto.Password);
         user.Email = userRegisterDto.Email;
 
@@ -170,21 +166,18 @@ public class EfUserService : IUserService
     
     public async Task<ApiResponse<string>> LoginUser(UserLoginDto userLoginDto)
     {
-        // Retrieve the user by email
         var user = await _userRepository.GetByEmailAsync(userLoginDto.Email);
         if (user == null)
         {
             throw new Exception("Invalid email or password.");
         }
 
-        // Verify the password
         var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, userLoginDto.Password);
         if (passwordVerificationResult == PasswordVerificationResult.Failed)
         {
             throw new Exception("Invalid email or password.");
         }
 
-        // Generate JWT token
         var token = _jwtService.GenerateToken(user.Id, user.Email, user.Role.Name);
 
         return new ApiResponse<string>(true, "Login successful", token);

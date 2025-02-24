@@ -7,7 +7,7 @@ namespace DataAccess.Repositories
 {
     public class UserRepository(AppDbContext context) : GenericRepository<User>(context), IUserRepository
     {
-        public override async Task<IEnumerable<User>> GetAllAsync(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<User>> GetAllPaginatedAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .Include(u => u.Role)
@@ -46,29 +46,23 @@ namespace DataAccess.Repositories
 
             if (existingUser != null)
             {
-                // Detach the existing role to prevent tracking conflicts
                 if (existingUser.Role != null)
                 {
                     _context.Entry(existingUser.Role).State = EntityState.Detached;
                 }
 
-                // Update basic properties
                 existingUser.Firstname = entity.Firstname;
                 existingUser.Surname = entity.Surname;
                 existingUser.Gender = entity.Gender;
                 existingUser.RoleId = entity.RoleId;
 
-                // Handle addresses if needed
                 if (entity.Addresses != null)
                 {
-                    // Remove existing addresses
                     _context.Addresses.RemoveRange(existingUser.Addresses);
 
-                    // Add new addresses
                     existingUser.Addresses = entity.Addresses;
                 }
 
-                // Update the entity state
                 _context.Entry(existingUser).State = EntityState.Modified;
             }
         }

@@ -20,56 +20,28 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet()]
-    [Authorize] // Secure endpoint - Only Admin can access
-    public async Task<ApiResponse<List<UserDto>>> GetUsers([FromQuery] int pageNumber = 1,
+    [Authorize(Roles = "admin")]
+    public async Task<ApiResponse<PaginatedResponse<List<UserDto>>>> GetUsers([FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10)
     {
         return await _userService.GetAllUsers(pageNumber, pageSize);
     }
 
     [HttpGet("{userId}")]
-    [Authorize] // Secure endpoint
+    [Authorize(Roles = "admin")]
     public async Task<ApiResponse<UserDto>> GetSingleUser(int userId)
     {
-        // Get the user ID from the token
-        var userIdFromToken = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        // Check if the user is authorized to access this resource
-        if (userIdFromToken != userId.ToString() && !User.IsInRole("admin"))
-        {
+        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userId.ToString())
             return new ApiResponse<UserDto>(false, "Unauthorized", null);
-        }
-
         return await _userService.GetUserById(userId);
-    }
-    
-    [HttpGet("me")]
-    [Authorize] // Secure endpoint - Requires authentication
-    public async Task<ActionResult<ApiResponse<UserInfoDto>>> GetCurrentUser()
-    {
-        // Get the user ID from the token
-        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-        var result = await _userService.GetUserInfoById(userId);
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-        return BadRequest(result);
     }
 
     [HttpPut()]
-    [Authorize] // Secure endpoint
+    [Authorize]
     public async Task<ApiResponse<UserDto>> EditUser(UserDto userDto)
     {
-        // Get the user ID from the token
-        var userIdFromToken = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        // Check if the user is authorized to access this resource
-        if (userIdFromToken != userDto.Id.ToString() && !User.IsInRole("admin"))
-        {
+        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userDto.Id.ToString())
             return new ApiResponse<UserDto>(false, "Unauthorized", null);
-        }
-
         return await _userService.UpdateUser(userDto);
     }
 
@@ -80,40 +52,23 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("")]
-    [Authorize(Roles = "admin")] // Secure endpoint - Only Admin can access
+    [Authorize(Roles = "admin")]
     public async Task<ApiResponse<string?>> DeleteUser(int userId)
     {
+        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userId.ToString())
+            return new ApiResponse<string?>(false, "Unauthorized", null);
         return await _userService.DeleteUser(userId);
     }
 
     [HttpPost("register")]
     public async Task<ActionResult<ApiResponse<string>>> Register(UserRegisterDto userRegisterDto)
     {
-        try
-        {
-            var result = await _userService.RegisterUser(userRegisterDto);
-            return Ok(result);
-        }
-        catch (ValidationException ex)
-        {
-            return BadRequest(new ApiResponse<string>(false, "Validation failed", null, validationErrors: ex.Errors.Select(e => e.ErrorMessage).ToList()));        }
-        catch (Exception ex)
-        {
-            return BadRequest(new ApiResponse<string>(false, ex.Message, null));
-        }
+        return await _userService.RegisterUser(userRegisterDto);
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<ApiResponse<string>>> Login(UserLoginDto userLoginDto)
+    public async Task<ApiResponse<string>> Login(UserLoginDto userLoginDto)
     {
-        try
-        {
-            var result = await _userService.LoginUser(userLoginDto);
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new ApiResponse<string>(false, ex.Message, null));
-        }
+        return await _userService.LoginUser(userLoginDto);
     }
 }

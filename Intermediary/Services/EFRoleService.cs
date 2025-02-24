@@ -17,12 +17,12 @@ namespace Intermediary.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<List<RoleDto>>> GetAllRoles(int pageNumber, int pageSize)
+        public async Task<ApiResponse<List<RoleDto>>> GetAllRoles()
         {
-            var roles = await _roleRepository.GetAllAsync(pageNumber, pageSize);
+            var roles = await _roleRepository.GetAllAsync();
             var totalCount = await _roleRepository.GetTotalCountAsync();
             var roleDtos = _mapper.Map<List<RoleDto>>(roles);
-            return new ApiResponse<List<RoleDto>>(true, "Roles retrieved successfully", roleDtos, pageNumber, pageSize, totalCount);
+            return new ApiResponse<List<RoleDto>>(true, "Roles retrieved successfully", roleDtos);
         }
 
         public async Task<ApiResponse<RoleDto>> GetRoleById(int roleId)

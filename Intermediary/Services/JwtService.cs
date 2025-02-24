@@ -21,8 +21,8 @@ public class JwtService : IJwtService
         var claims = new[]
         {
             new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-            new Claim(ClaimTypes.Email, userEmail), // Add email as a claim
-            new Claim(ClaimTypes.Role, role) // Add role as a claim
+            new Claim(ClaimTypes.Email, userEmail), 
+            new Claim(ClaimTypes.Role, role)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -31,7 +31,7 @@ public class JwtService : IJwtService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddDays(1), // Token expiration
+            Expires = DateTime.Now.AddDays(1),
             SigningCredentials = creds,
             Issuer = _configuration["Jwt:Issuer"],
             Audience = _configuration["Jwt:Audience"],

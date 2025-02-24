@@ -7,7 +7,7 @@ namespace DataAccess.Repositories
 {
     public class ImageRepository(AppDbContext context) : GenericRepository<Image>(context), IProfilePicRepository
     {
-        public override async Task<IEnumerable<Image>> GetAllAsync(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<Image>> GetAllPaginatedAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .OrderBy(p => p.Id)

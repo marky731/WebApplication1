@@ -7,7 +7,7 @@ namespace DataAccess.Repositories
 {
     public class RoleRepository(AppDbContext context) : GenericRepository<Role>(context), IRoleRepository
     {
-        public override async Task<IEnumerable<Role>> GetAllAsync(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<Role>> GetAllPaginatedAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .OrderBy(r => r.Id)

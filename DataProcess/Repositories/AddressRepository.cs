@@ -7,7 +7,7 @@ namespace DataAccess.Repositories
 {
     public class AddressRepository(AppDbContext context) : GenericRepository<Address>(context), IAddressRepository
     {
-        public override async Task<IEnumerable<Address>> GetAllAsync(int pageNumber, int pageSize)
+        public override async Task<IEnumerable<Address>> GetAllPaginatedAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .OrderBy(a => a.Id)

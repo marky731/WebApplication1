@@ -15,12 +15,17 @@ namespace DataAccess.Repositories
             _dbSet = context.Set<T>();
         }
 
-        public virtual async Task<IEnumerable<T>> GetAllAsync(int pageNumber, int pageSize)
+        public virtual async Task<IEnumerable<T>> GetAllPaginatedAsync(int pageNumber, int pageSize)
         {
             return await _dbSet
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
+        }
+
+        public Task<List<T>> GetAllAsync()
+        {
+            return _dbSet.ToListAsync();
         }
 
         public virtual async Task<T?> GetByIdAsync(int id)

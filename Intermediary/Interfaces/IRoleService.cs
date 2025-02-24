@@ -5,7 +5,7 @@ namespace Intermediary.Interfaces;
 
 public interface IRoleService
 {
-    Task<ApiResponse<List<RoleDto>>> GetAllRoles(int pageNumber, int pageSize);
+    Task<ApiResponse<List<RoleDto>>> GetAllRoles();
     Task<ApiResponse<RoleDto>> GetRoleById(int id);
     Task<ApiResponse<RoleDto>> CreateRole(RoleDto roleDto);
     Task<ApiResponse<RoleDto>> UpdateRole(RoleDto roleDto);

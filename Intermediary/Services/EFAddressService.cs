@@ -17,12 +17,18 @@ namespace Intermediary.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<List<AddressDto>>> GetAllAddresses(int pageNumber, int pageSize)
+        public async Task<ApiResponse<List<AddressDto>>> GetAllAddresses()
         {
-            var addresses = await _addressRepository.GetAllAsync(pageNumber, pageSize);
+            var addresses = await _addressRepository.GetAllAsync();
             var addressDtos = _mapper.Map<List<AddressDto>>(addresses);
             return new ApiResponse<List<AddressDto>>(true, "Addresses retrieved successfully", addressDtos);
         }
+
+        public async Task<ApiResponse<List<AddressDto>>> GetAllPaginatedAddresses(int pageNumber, int pageSize)
+        {
+            var addresses = await _addressRepository.GetAllPaginatedAsync(pageNumber, pageSize);
+            var addressDtos = _mapper.Map<List<AddressDto>>(addresses);
+            return new ApiResponse<List<AddressDto>>(true, "Addresses retrieved successfully", addressDtos);        }
 
         public async Task<ApiResponse<AddressDto>> GetAddressById(int addressId)
         {

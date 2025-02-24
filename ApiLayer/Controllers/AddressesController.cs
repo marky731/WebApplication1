@@ -1,7 +1,9 @@
+using System.Security.Claims;
 using Intermediary.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiLayer.Controllers
 {
@@ -17,33 +19,38 @@ namespace ApiLayer.Controllers
         }
 
         [HttpGet]
-        public async Task<ApiResponse<List<AddressDto>>> GetAddresses([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        [Authorize(Roles = "Admin")]
+        public async Task<ApiResponse<List<AddressDto>>> GetAddresses()
         {
-            return await _addressService.GetAllAddresses(pageNumber, pageSize);
+            return await _addressService.GetAllAddresses();
         }
 
         [HttpGet("{addressId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<AddressDto>> GetSingleAddress(int addressId)
         {
             return await _addressService.GetAddressById(addressId);
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<AddressDto>> EditAddress(AddressDto addressDto)
         {
             return await _addressService.UpdateAddress(addressDto);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<AddressDto>> AddAddress(AddressDto addressDto)
         {
             return await _addressService.CreateAddress(addressDto);
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<string?>> DeleteAddress(int addressId)
         {
             return await _addressService.DeleteAddress(addressId);
         }
     }
-} 
+}

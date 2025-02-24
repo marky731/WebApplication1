@@ -17,12 +17,6 @@ namespace ApiLayer.Controllers
             _profilePicService = profilePicService;
         }
 
-        [HttpGet]
-        public async Task<ApiResponse<List<ImageDto>>> GetProfilePics([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
-        {
-            return await _profilePicService.GetAllProfilePics(pageNumber, pageSize);
-        }
-
         [HttpGet("{profilePicId}")]
         public async Task<ApiResponse<ImageDto>> GetSingleProfilePic(int profilePicId)
         {
@@ -35,11 +29,10 @@ namespace ApiLayer.Controllers
             return await _profilePicService.UpdateProfilePic(imageDto);
         }
 
-        [HttpPost("upload")]
+        [HttpPost]
         public async Task<ApiResponse<ImageUploadDto?>> UploadProfilePic([FromForm] ImageUploadDto uploadDto)
         {
             return await _profilePicService.CreateProfilePic(uploadDto);
-
         }
 
         [HttpDelete]
@@ -48,4 +41,4 @@ namespace ApiLayer.Controllers
             return await _profilePicService.DeleteProfilePic(profilePicId);
         }
     }
-} 
+}
