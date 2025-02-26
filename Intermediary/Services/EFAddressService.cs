@@ -24,11 +24,14 @@ namespace Intermediary.Services
             return new ApiResponse<List<AddressDto>>(true, "Addresses retrieved successfully", addressDtos);
         }
 
-        public async Task<ApiResponse<List<AddressDto>>> GetAllPaginatedAddresses(int pageNumber, int pageSize)
+        public async Task<ApiResponse<PaginatedResponse<List<AddressDto>>>> GetAllPaginatedAddresses(int pageNumber,
+            int pageSize)
         {
             var addresses = await _addressRepository.GetAllPaginatedAsync(pageNumber, pageSize);
+            var totalCount = await _addressRepository.GetTotalCountAsync();
             var addressDtos = _mapper.Map<List<AddressDto>>(addresses);
-            return new ApiResponse<List<AddressDto>>(true, "Addresses retrieved successfully", addressDtos);        }
+            PaginatedResponse<List<AddressDto>> paginatedResponse = new PaginatedResponse<List<AddressDto>>(addressDtos, pageNumber, pageSize, totalCount);
+            return new ApiResponse<PaginatedResponse<List<AddressDto>>>(true, "Addresses retrieved successfully", paginatedResponse);        }
 
         public async Task<ApiResponse<AddressDto>> GetAddressById(int addressId)
         {

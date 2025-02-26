@@ -19,35 +19,35 @@ namespace ApiLayer.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public async Task<ApiResponse<List<AddressDto>>> GetAddresses()
+        [Authorize(Roles = "admin")]
+        public async Task<ApiResponse<PaginatedResponse<List<AddressDto>>>> GetAddresses([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            return await _addressService.GetAllAddresses();
+            return await _addressService.GetAllPaginatedAddresses(pageNumber, pageSize);
         }
 
         [HttpGet("{addressId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ApiResponse<AddressDto>> GetSingleAddress(int addressId)
         {
             return await _addressService.GetAddressById(addressId);
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ApiResponse<AddressDto>> EditAddress(AddressDto addressDto)
         {
             return await _addressService.UpdateAddress(addressDto);
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ApiResponse<AddressDto>> AddAddress(AddressDto addressDto)
         {
             return await _addressService.CreateAddress(addressDto);
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         public async Task<ApiResponse<string?>> DeleteAddress(int addressId)
         {
             return await _addressService.DeleteAddress(addressId);

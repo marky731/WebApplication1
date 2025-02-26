@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using ApiLayer.Authorization;
 
 
@@ -22,8 +21,7 @@ public class UsersController : ControllerBase
 
     [HttpGet()]
     [Authorize(Roles = "admin")]
-    public async Task<ApiResponse<PaginatedResponse<List<UserDto>>>> GetUsers([FromQuery] int pageNumber = 1,
-        [FromQuery] int pageSize = 10)
+    public async Task<ApiResponse<PaginatedResponse<List<UserDto>>>> GetUsers([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
         return await _userService.GetAllUsers(pageNumber, pageSize);
     }
@@ -32,32 +30,27 @@ public class UsersController : ControllerBase
     [AuthorizeUserId]
     public async Task<ApiResponse<UserDto>> GetSingleUser(int userId)
     {
-        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userId.ToString())
-            return new ApiResponse<UserDto>(false, "Unauthorized", null);
         return await _userService.GetUserById(userId);
     }
 
     [HttpPut()]
-    [Authorize]
+    [AuthorizeUserId]
     public async Task<ApiResponse<UserDto>> EditUser(UserDto userDto)
     {
-        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userDto.Id.ToString())
-            return new ApiResponse<UserDto>(false, "Unauthorized", null);
         return await _userService.UpdateUser(userDto);
     }
 
     [HttpPost()]
+    [Authorize(Roles = "admin")]
     public async Task<ApiResponse<UserToAddDto>> AddUser(UserToAddDto userToAddDto)
     {
         return await _userService.CreateUser(userToAddDto);
     }
 
-    [HttpDelete("")]
-    [Authorize(Roles = "admin")]
+    [HttpDelete()]
+    [AuthorizeUserId]
     public async Task<ApiResponse<string?>> DeleteUser(int userId)
     {
-        if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value != userId.ToString())
-            return new ApiResponse<string?>(false, "Unauthorized", null);
         return await _userService.DeleteUser(userId);
     }
 
