@@ -16,6 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
+using ApiLayer.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -101,8 +102,10 @@ builder.Services.AddScoped<IProfilePicService, EfImageService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>(); 
 
 
-builder.Services.AddControllers();
-
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ApiExceptionFilter>();
+});
 builder.Services.AddAutoMapper(typeof(UserProfile));
 builder.Services.AddHttpContextAccessor();
 

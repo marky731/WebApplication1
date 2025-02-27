@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataProcess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04e5b85cb23e1a2fa344de788e3a4326a93afb46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7341c63c2e068f726c2d0dcb293bc9ebc10dd976")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataProcess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataProcess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

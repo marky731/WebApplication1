@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xwxFbAajYDd7ZUgJpPeLmgsBKFxQuJB4e6sq3g+On+A=",
+  "Hash": "o/MVZnFeiFNfT3/N0jMIywjDjs0gS6JZ/sGB1pXBlyM=",
   "Source": "ApiLayer",
   "BasePath": "_content/ApiLayer",
   "Mode": "Default",
@@ -16,6 +16,27 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png",
+      "SourceId": "ApiLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/",
+      "BasePath": "_content/ApiLayer",
+      "RelativePath": "profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fd4k07zo14",
+      "Integrity": "I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png"
+    },
     {
       "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/288044ef-66ee-419f-bfab-feb73bdd4539.png",
       "SourceId": "ApiLayer",
@@ -78,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/profile_pictures/32b546c8-40b0-457e-89b9-5d4483794dca.png"
+    },
+    {
+      "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png",
+      "SourceId": "ApiLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/",
+      "BasePath": "_content/ApiLayer",
+      "RelativePath": "profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fd4k07zo14",
+      "Integrity": "I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png"
     },
     {
       "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/7a785ca0-e26d-4b21-9eab-a4d92225f791.png",
@@ -143,6 +185,27 @@
       "OriginalItemSpec": "wwwroot/profile_pictures/a12a6271-1cb6-4908-a652-45fd87990591.png"
     },
     {
+      "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png",
+      "SourceId": "ApiLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/",
+      "BasePath": "_content/ApiLayer",
+      "RelativePath": "profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fd4k07zo14",
+      "Integrity": "I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png"
+    },
+    {
       "Identity": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/a8913ab2-dd4d-44bb-9719-5d7a894ebacf.png",
       "SourceId": "ApiLayer",
       "SourceType": "Discovered",
@@ -165,6 +228,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.fd4k07zo14.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 11:52:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fd4k07zo14"
+        },
+        {
+          "Name": "label",
+          "Value": "profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
+        }
+      ]
+    },
+    {
+      "Route": "profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/06424494-c2e7-4991-8571-62d98631f7eb.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 11:52:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
+        }
+      ]
+    },
     {
       "Route": "profile_pictures/288044ef-66ee-419f-bfab-feb73bdd4539.png",
       "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/288044ef-66ee-419f-bfab-feb73bdd4539.png",
@@ -412,6 +557,88 @@
       ]
     },
     {
+      "Route": "profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.fd4k07zo14.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 11:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fd4k07zo14"
+        },
+        {
+          "Name": "label",
+          "Value": "profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
+        }
+      ]
+    },
+    {
+      "Route": "profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/6df54292-f5de-46d7-8280-1159c424dde5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 11:49:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
+        }
+      ]
+    },
+    {
       "Route": "profile_pictures/7a785ca0-e26d-4b21-9eab-a4d92225f791.44048lq7o7.png",
       "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/7a785ca0-e26d-4b21-9eab-a4d92225f791.png",
       "Selectors": [],
@@ -654,6 +881,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-bEpxcY3nXRD+yMWZI2ABtsF0JnNNrOS5NhpuoGh8tEs="
+        }
+      ]
+    },
+    {
+      "Route": "profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.fd4k07zo14.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 12:15:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fd4k07zo14"
+        },
+        {
+          "Name": "label",
+          "Value": "profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
+        }
+      ]
+    },
+    {
+      "Route": "profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png",
+      "AssetFile": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/wwwroot/profile_pictures/a4be33ff-6bf0-4740-9d47-141796ee5bce.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 26 Feb 2025 12:15:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-I/8Ow7mvsUoAtIOWwvqjO/KevmX3RQVpExaDvFZQt1c="
         }
       ]
     },
