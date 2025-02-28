@@ -17,6 +17,8 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using ApiLayer.Filters;
+using DataAccess.Jobs;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -120,6 +122,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddQuartz(q =>
+{
+    var jobKey = new JobKey("ProfilePictureCleanup");
+    q.AddJob<ImageCleanupJob>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("ProfilePictureCleanup-trigger")
+        .WithSimpleSchedule(x => x
+            .WithIntervalInSeconds(120)
+            .RepeatForever()));
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 var app = builder.Build();
 // var dbContext = app.Services.GetRequiredService<AppDbContext>();

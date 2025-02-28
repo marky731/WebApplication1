@@ -4,7 +4,7 @@ using EntityLayer.ApiResponse;
 using EntityLayer.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using ApiLayer.Authorization;
-
+using System.Security.Claims;
 
 namespace ApiLayer.Controllers;
 
@@ -64,5 +64,19 @@ public class UsersController : ControllerBase
     public async Task<ApiResponse<string>> Login(UserLoginDto userLoginDto)
     {
         return await _userService.LoginUser(userLoginDto);
+    }
+
+    [HttpGet("me")]
+    [Authorize] 
+    public async Task<ApiResponse<UserInfoDto>> GetCurrentUser()
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userIdClaim == null)
+        {
+            throw new UnauthorizedAccessException("Invalid token");
+        }
+
+        int userId = int.Parse(userIdClaim);
+        return await _userService.GetUserInfoById(userId);
     }
 }

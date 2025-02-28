@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F1KgMkZills=",
+  "dgSpecHash": "vXzP2XACIqY=",
   "success": true,
   "projectFilePath": "/Users/mac/RiderProjects/WebApplication1/ApiLayer/ApiLayer.csproj",
   "expectedPackageFiles": [
@@ -75,6 +75,9 @@
     "/Users/mac/.nuget/packages/npgsql.entityframeworkcore.postgresql/9.0.3/npgsql.entityframeworkcore.postgresql.9.0.3.nupkg.sha512",
     "/Users/mac/.nuget/packages/nunit/4.3.2/nunit.4.3.2.nupkg.sha512",
     "/Users/mac/.nuget/packages/nunit3testadapter/4.6.0/nunit3testadapter.4.6.0.nupkg.sha512",
+    "/Users/mac/.nuget/packages/quartz/3.13.1/quartz.3.13.1.nupkg.sha512",
+    "/Users/mac/.nuget/packages/quartz.extensions.dependencyinjection/3.13.1/quartz.extensions.dependencyinjection.3.13.1.nupkg.sha512",
+    "/Users/mac/.nuget/packages/quartz.extensions.hosting/3.13.1/quartz.extensions.hosting.3.13.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/Users/mac/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

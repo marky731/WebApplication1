@@ -29,6 +29,7 @@
       <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.6.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
+      <PackageReference Include="Quartz" Version="3.13.1" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.0" />
     </ItemGroup>
 

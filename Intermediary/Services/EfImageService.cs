@@ -58,7 +58,7 @@ namespace Intermediary.Services
             var profilePicDto = new ImageDto
             {
                 UserId = uploadDto.UserId,
-                ImagePath = "/profile_pictures/" + fileName
+                ImagePath = fileName
             };
 
 

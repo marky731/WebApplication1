@@ -113,6 +113,14 @@
               "target": "Package",
               "version": "[9.0.3, )"
             },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -244,6 +252,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.13.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

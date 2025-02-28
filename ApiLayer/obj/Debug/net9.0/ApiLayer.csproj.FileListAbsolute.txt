@@ -246,3 +246,6 @@
 /Users/mac/RiderProjects/WebApplication1/ApiLayer/obj/Debug/net9.0/ApiLayer.pdb
 /Users/mac/RiderProjects/WebApplication1/ApiLayer/obj/Debug/net9.0/ApiLayer.genruntimeconfig.cache
 /Users/mac/RiderProjects/WebApplication1/ApiLayer/obj/Debug/net9.0/ref/ApiLayer.dll
+/Users/mac/RiderProjects/WebApplication1/ApiLayer/bin/Debug/net9.0/Quartz.dll
+/Users/mac/RiderProjects/WebApplication1/ApiLayer/bin/Debug/net9.0/Quartz.Extensions.DependencyInjection.dll
+/Users/mac/RiderProjects/WebApplication1/ApiLayer/bin/Debug/net9.0/Quartz.Extensions.Hosting.dll
