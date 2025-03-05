@@ -5,6 +5,7 @@ using EntityLayer.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using ApiLayer.Authorization;
 using System.Security.Claims;
+using EntityLayer.Models;
 
 namespace ApiLayer.Controllers;
 
@@ -67,7 +68,6 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("me")]
-    [Authorize] 
     public async Task<ApiResponse<UserInfoDto>> GetCurrentUser()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -79,4 +79,18 @@ public class UsersController : ControllerBase
         int userId = int.Parse(userIdClaim);
         return await _userService.GetUserInfoById(userId);
     }
+
+    // [HttpGet("token")]
+    // public ActionResult<string> GetCurrentToken()
+    // {
+    //     var authHeader = Request.Headers["Authorization"].ToString();
+    //     if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+    //     {
+    //         return BadRequest("No token found in Authorization header");
+    //     }
+    //
+    //     // Extract the token part after "Bearer "
+    //     var token = authHeader.Substring("Bearer ".Length);
+    //     return Ok(token);
+    // }
 }

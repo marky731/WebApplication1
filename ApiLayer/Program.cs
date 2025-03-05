@@ -24,7 +24,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 
-// Add JWT Authentication
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -50,7 +49,6 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "Your API", Version = "v1" });
 
-    // Add security definition
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -81,7 +79,6 @@ builder.Services.AddSwaggerGen(c =>
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
-    // Register services with Autofac
     containerBuilder.RegisterType<EfUserService>().As<IUserService>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
     containerBuilder.RegisterType<EfRoleService>().As<IRoleService>().InstancePerLifetimeScope();
@@ -131,7 +128,7 @@ builder.Services.AddQuartz(q =>
         .ForJob(jobKey)
         .WithIdentity("ProfilePictureCleanup-trigger")
         .WithSimpleSchedule(x => x
-            .WithIntervalInSeconds(120)
+            .WithIntervalInSeconds(15)
             .RepeatForever()));
 });
 
